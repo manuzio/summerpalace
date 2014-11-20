@@ -1,23 +1,167 @@
-.dev-bground {
-	background: url('../img/01_content.png');
-	width: 1920px;
-	height: 1000px;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	margin-left: -960px;
-	opacity: 1;
-}
+/***** VARIABLES *****/
 
 @base-background: 		#FFFFFF;
 @header-color: 			#131E26;
 @text-color: 			#666666;
 @text-big-color: 		#333333;
 @text-hi-dark-color: 	#444444;
+@text-darkest-color:	#111111;
 @text-accent-color: 	#B88C32;
+@accent-light: 			#FAF4EB;
+@main-width: 			940px;
+@main-pad: 				10px;
 
+/***** HELPERS *****/
 
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/***** MAIN STYLES *****/
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: Georgia, serif;
+}
 
 body {
-	background: @base-background;
+	background: url('../img/01_content.png') @base-background;
+	background-position: top center;
 }
+
+.sans {
+	font-family: 'Open Sans', 'Tahoma', 'Verdana', sans-serif;
+}
+
+.center {
+	position: relative;
+	width: @main-width;
+	left: 50%;
+	margin-left: 0-(@main-width/2);
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+.hr(@color) {
+	border-top: 1px solid @color;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+	width: 100%;
+	section#nav-top {
+		.center();
+		.clearfix();
+		nav {
+			.sans();
+			font-size: 0.8em;
+			a {
+				color: @text-color;
+				display: inline-block;
+				margin-right: 48px;
+				line-height: 2.5em;
+				text-decoration: none;
+			}
+			a#live {
+				color: @text-darkest-color;
+				background: url('../img/ico/live.png') no-repeat center left;
+				padding-left: 26px;
+				margin-right: 50px;
+			}
+			aside {
+				float: right;
+				a {
+					display: inline-block;
+					width: 22px;
+					// height: 22px;
+					background-image: url('../img/ico/social.png');
+					background-repeat: no-repeat;
+					text-decoration: none;
+					margin-left: 4px;
+					margin-right: 0px;
+					height: 2.4em;
+				}
+				a.fb {background-position: 0px 80%;}
+				a.in {background-position: -27px 80%;}
+				a.tw {background-position: -54px 80%;}
+				a.vk {background-position: -81px 80%;}
+			} //aside
+		} //nav
+	} //section#nav-top
+	hr {
+		.hr(@accent-light);
+		.clearfix();
+		margin-top: 2px;
+		margin-bottom: 20px;
+	}
+	section#head-mid {
+		.center();
+		height: 175px;
+		>div {
+			display: block;
+			width: 33.33%;
+			min-height: 1px;
+			float: left;
+			padding-top: 48px;
+		}
+		>div:first-child {
+			.phone {
+				font-size: 1.2em;
+			}
+			.callmeback {
+				font-size: 0.75em;
+				font-style: italic;
+				color: @text-accent-color;
+				text-decoration: none;
+				border-bottom: 1px dashed @text-accent-color;
+			}
+		}
+	}//section#head-mid
+} //header
+
+
+
+
+
