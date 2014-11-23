@@ -41,6 +41,7 @@ body {
 	background: url('../img/01_content.png') @base-background;
 	background-position: top center;
 	height: 3000px;
+	color: @text-color;
 }
 
 .sans {
@@ -79,10 +80,19 @@ hr {
 	border-top: 1px solid @color;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
 	.sans();
 	font-weight: 400;
 	letter-spacing: 0.025em;
+	color: @header-color;
+}
+h3 {
+	font-weight: 600;
+	color: @text-big-color;
+}
+
+h5, h6 {
+	color: @text-hi-dark-color;
 }
 
 p {
@@ -262,13 +272,35 @@ main {
 		line-height: 2.8em;
 		margin-bottom: 0.1em;
 	}
-	h1:before, h1:after {
+	h1.outlined-bp:before, h1.outlined-bp:after {
 		content: '';
 		display: inline-block;
 		width: 3em;
 		height: 0.32em;
 		border-top: 1px solid red @text-accent-color;
 		margin: 0 0.6em;
+	} // пуленепробиваемый, под разноцветный фон
+
+	h1.outlined span{
+		background: @base-background;
+		position: relative;
+		z-index: 2;
+		padding: 0 0.55em;
+	}
+	h1.outlined:after {
+		content: ' ';
+		display: block;
+		width: 82%;
+		height: 1px;
+		background: @text-accent-color;
+		margin: 0px auto;
+		position: relative;
+		top: -1.35em;
+	}
+
+	h2 {
+		font-size: 1.75em;
+		line-height: 1.1em;
 	}
 	article {
 		figure {
@@ -300,13 +332,50 @@ main {
 			margin: 0;
 		}
 
-		p.separator-bottom:after {
+		.separator-bottom:after {
 			content: '';
 			display: block;
 			border-top: 1px solid @text-accent-color;
 			width: 300px;
 			height: 1px;
 			margin: 0.8em auto 0.6em;
+		}
+
+		section.center {
+			margin-top: 4em;
+			text-align: center;
+			p {
+				.center(770px);
+				margin-bottom: 2em;
+			}
+		}
+
+		table {
+			margin: 22px 0 0 0;
+			tr {
+				td {
+					width: 50%;
+					img.left {
+						margin: 0 1em 1em 0;
+					}
+					img.right {
+						margin: 0 0 1em 1em;
+					}
+					p {
+						font-size: 0.9em;
+						line-height: 1.5em;
+					}
+				}
+			}
+		}
+
+		h6 {
+			font-size: 1.3em;
+			margin: 0;
+			line-height: 2.5em;
+			img {
+				margin-top: -15px;
+			}
 		}
 	} //article
 } //main
