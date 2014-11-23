@@ -11,6 +11,7 @@
 @accent-light: 			#FAF4EB;
 @main-width: 			940px;
 @main-pad: 				10px;
+@oullined-line-width: 	80%;
 
 /***** HELPERS *****/
 
@@ -258,6 +259,42 @@ section.breadcrumbs {
 	}
 }
 
+p.person {
+	display: block;
+	border: 2px solid @text-accent-color;
+	width: 156px;
+	height: 156px;
+	border-radius: 156px;
+	overflow: hidden;
+	margin: 0px auto;
+	position: relative;
+	img {
+		display: block;
+		border: 7px solid transparent;
+		border-radius: 142px;
+		margin: 0px auto;
+		width: 142px;
+		height: 142px;
+		position: relative;
+		z-index: 3;
+		overflow: hidden;
+	}
+}
+p.person:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 150px;
+	margin: 2px;
+	border: 1px solid @text-accent-color;
+	border-radius: 150px;
+}
+
+
+
 main {
 	.clearfix();
 	>* {
@@ -281,16 +318,16 @@ main {
 		margin: 0 0.6em;
 	} // пуленепробиваемый, под разноцветный фон
 
-	h1.outlined span{
+	.outlined span{
 		background: @base-background;
 		position: relative;
 		z-index: 2;
 		padding: 0 0.55em;
 	}
-	h1.outlined:after {
+	.outlined:after {
 		content: ' ';
 		display: block;
-		width: 82%;
+		width: @oullined-line-width;
 		height: 1px;
 		background: @text-accent-color;
 		margin: 0px auto;
@@ -300,10 +337,18 @@ main {
 
 	h2 {
 		font-size: 1.75em;
-		line-height: 1.1em;
+		line-height: 1em;
+		text-align: center;
+		margin: 0.3em 0 0.83em 0;
 	}
+
+	strong {
+		color: @text-hi-dark-color;
+	}
+
 	article {
 		figure {
+			max-width: 215px;
 			padding: 5px;
 			figcaption {
 				text-align: center;
@@ -312,12 +357,22 @@ main {
 				font-size: 0.8em;
 				padding-top: 0.4em;
 			}
+			h6 {
+				font-size: 1.1em;
+				line-height: 1.4em;
+				font-style: normal;
+				font-weight: 600;
+				margin-bottom: 0.7em;
+			}
 		}
 		.left {
 			float: left;
 		}
 		.right {
 			float: right;
+		}
+		figure.left {
+			margin-right: 18px;
 		}
 		p {
 			line-height: 1.6em;
@@ -350,11 +405,13 @@ main {
 			}
 		}
 
-		table {
-			margin: 22px 0 0 0;
+		table.featured {
+			margin: 22px 0 30px 0;
 			tr {
 				td {
+					vertical-align: top;
 					width: 50%;
+					padding-bottom: 6px;
 					img.left {
 						margin: 0 1em 1em 0;
 					}
@@ -366,8 +423,24 @@ main {
 						line-height: 1.5em;
 					}
 				}
+				td.d1 h6 {
+					background: url('../img/ico/descr1.png') no-repeat 0% 23%;
+					padding-left: 52px;
+				}
+				td.d2 h6 {
+					background: url('../img/ico/descr2.png') no-repeat 1.5% 45%;
+					padding-left: 60px;
+				}
+				td.d3 h6 {
+					background: url('../img/ico/descr3.png') no-repeat 0% 23%;
+					padding-left: 40px;
+				}
+				td.d4 h6 {
+					background: url('../img/ico/descr4.png') no-repeat 0% 23%;
+					padding-left: 52px;
+				}
 			}
-		}
+		} //table.featured
 
 		h6 {
 			font-size: 1.3em;
@@ -376,6 +449,82 @@ main {
 			img {
 				margin-top: -15px;
 			}
+		}
+
+		div.pagenum {
+			font-size: 1.25em;
+			text-align: center;
+			color: @base-background;
+			position: relative;
+			span {
+				display: block;
+				margin: 0px auto;
+				background: @text-accent-color;
+				width: 35px;
+				height: 35px;
+				line-height: 30px;
+				border: 10px solid @base-background;
+				border-radius: 35px;
+				overflow: hidden;
+				position: relative;
+				z-index: 2;
+			}
+			span:before {
+				content: '';
+				position: absolute;
+				top: 1px;
+				left: 1px; 
+				border: 2px solid @base-background;
+				border-radius: 33px;
+				width: 29px;
+				height: 29px;
+			}
+		}
+		div.pagenum:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 56%;
+			left: 50%;
+			width: @oullined-line-width;
+			height: 1px;
+			margin-left: 0-(@oullined-line-width/2);
+			background: @text-accent-color;
+		}
+
+		div.quote {
+			margin-top: 0.55em;
+			font-size: 0.9em;
+			border: 2px solid @text-accent-color;
+			border-radius: 2px;
+			width: 693px;
+			position: relative
+		}
+		div.bubble-left {
+			float: left;
+		}
+		div.bubble-left:before {
+			content: ' ';
+			position: absolute;
+			width: 0;
+			height: 0;
+			left: -50px;
+			top: 0px;
+			border: 25px solid;
+			border-color:  @text-accent-color @text-accent-color transparent transparent;
+			border-radius: 10px;
+		}
+
+
+		div.bubble-left:after {
+			content: ' ';
+			position: absolute;
+			width: 0;
+			height: 0;
+			left: -30px;
+			top: 10px;
+			border: 15px solid;
+			border-color:  @base-background @base-background transparent transparent;
 		}
 	} //article
 } //main
