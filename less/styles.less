@@ -41,7 +41,7 @@ html {
 body {
 	background: url('../img/01_content.png') @base-background;
 	background-position: top center;
-	height: 3000px;
+	height: 6000px;
 	color: @text-color;
 }
 
@@ -350,6 +350,7 @@ main {
 		figure {
 			max-width: 215px;
 			padding: 5px;
+			margin-bottom: 1.3em;
 			figcaption {
 				text-align: center;
 				color: @text-ultralight-color;
@@ -500,6 +501,7 @@ main {
 			width: 653px;
 			position: relative;
 			padding: 15px 25px 8px 20px;
+			margin-bottom: 2.5em;
 
 			p {}
 			p:before {
@@ -549,6 +551,79 @@ main {
 			top: 0px;
 			border: 8px solid;
 			border-color:  @base-background @base-background transparent transparent;
+		}
+
+		h4 {
+			display: block;
+			.clearfix();
+			font-size: 1.3em;
+			text-align: center;
+			margin: 0.33em 0;
+		}
+
+		h3 {
+			font-size: 1.3em;
+			line-height: 3em;
+			margin: 0;
+		}
+
+		table.menu {
+			width: @main-width - 4;
+			margin: 26px 2px 2px 2px;
+			outline: 2px solid @text-accent-color;
+			border: 2px solid transparent;
+			box-shadow: 
+				inset 1px 1px 0px @text-accent-color,
+				inset -1px -1px 0px @text-accent-color;
+				// inset 1px 0px 0px @text-accent-color,
+				// inset -1px 0px 0px @text-accent-color,
+				// inset 0px 1px 0px @text-accent-color,
+				// inset 0px -1px 0px @text-accent-color;
+
+			tr:not(:first-child) {
+				border-top: 1px solid @text-accent-color;
+			}
+
+			tr {
+				border-right: 17px solid transparent;
+				border-left: 17px solid transparent;
+				border-radius: 17px;
+
+				td {
+					font-size: 0.9em;
+					padding: 18px 0px 13px 0px;
+					vertical-align: top;
+					p {
+						line-height: 1.4em;
+					}
+				}
+				td:nth-child(1) {
+					width: 480px;
+				}
+				td:nth-child(2) {
+					width: 220px;
+					text-align: right;
+				}
+				td:nth-child(3) {
+					text-align: right;
+					font-weight: 700;
+					font-size: 1em;
+					padding-right: 18px;
+					color: @text-hi-dark-color;
+				}
+			}
+			tr:before {
+					display: table-cell;
+					content: ' ';
+					width: 7px;
+					border-top: 1px solid transparent;
+			}
+			tr:after {
+					display: table-cell;
+					content: ' ';
+					width: 7px;
+					border-top: 1px solid transparent;
+			}
 		}
 	} //article
 } //main
