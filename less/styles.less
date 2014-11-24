@@ -497,33 +497,57 @@ main {
 			font-size: 0.9em;
 			border: 2px solid @text-accent-color;
 			border-radius: 2px;
-			width: 693px;
-			position: relative
+			width: 653px;
+			position: relative;
+			padding: 15px 25px 8px 20px;
+
+			p {}
+			p:before {
+				content: "«"; 
+				display: inline-block;
+				color: @text-accent-color;
+				font-size: 2.65em;
+				line-height: 0.1em;
+				position: relative;
+				bottom: -0.1em;
+			}
+			p:after {
+				content: "»";
+				display: inline-block;
+				color: @text-accent-color;
+				font-size: 2.65em;
+				line-height: 0.1em;
+				position: relative;
+				bottom: -0.1em;
+			}
 		}
 		div.bubble-left {
 			float: left;
+			margin-left: -6px;
 		}
 		div.bubble-left:before {
 			content: ' ';
+			display: block;
 			position: absolute;
 			width: 0;
 			height: 0;
-			left: -50px;
-			top: 0px;
-			border: 25px solid;
+			left: -20px;
+			top: -2px;
+			border: 10px solid;
 			border-color:  @text-accent-color @text-accent-color transparent transparent;
-			border-radius: 10px;
+			box-shadow: inset -1px -1px 1px #000;
 		}
 
 
 		div.bubble-left:after {
 			content: ' ';
+			display: block;
 			position: absolute;
 			width: 0;
 			height: 0;
-			left: -30px;
-			top: 10px;
-			border: 15px solid;
+			left: -15px;
+			top: 0px;
+			border: 8px solid;
 			border-color:  @base-background @base-background transparent transparent;
 		}
 	} //article
