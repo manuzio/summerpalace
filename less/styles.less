@@ -39,7 +39,7 @@ html {
 }
 
 body {
-	background: url('../img/01_content.png') @base-background;
+	//background: url('../img/01_content.png') @base-background;
 	background-position: top center;
 	height: 6000px;
 	color: @text-color;
@@ -623,6 +623,22 @@ main {
 					content: ' ';
 					width: 7px;
 					border-top: 1px solid transparent;
+			}
+		}
+
+		section.promo-list {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+
+			h5 {
+				font-size: 1em;
+				font-weight: 600;
+			}
+
+			>div {
+				text-align: center;
+				padding: 10px;
 			}
 		}
 	} //article
