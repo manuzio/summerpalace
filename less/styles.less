@@ -44,6 +44,7 @@ body {
 	//background: url('../img/01_content.png') @base-background;
 	background-position: top center;
 	color: @text-color;
+	min-width: 960px;
 }
 
 .sans {
@@ -963,7 +964,7 @@ main {
 
 		.call_me_maybe {
 			font-weight: 700;
-			background: rgba(100, 100, 100, 0.1); //@fullwidth-background;
+			background: @fullwidth-background;
 			margin: 22px 0;
 			padding: 18px 0 7px 25px;
 			color: @text-hi-dark-color;
@@ -1017,6 +1018,8 @@ main {
 } //main
 
 footer {
+	display: block;
+	.center(100%);
 	margin: 50px 0 0 0;
 	position: relative;
 	.light {
