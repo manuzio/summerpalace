@@ -390,6 +390,9 @@ main {
 		figure.left {
 			margin-right: 18px;
 		}
+		.align-center {
+			text-align: center;
+		}
 		p {
 			line-height: 1.6em;
 			margin-bottom: 0.8em;
@@ -515,12 +518,13 @@ main {
 			color: @base-background;
 			position: relative;
 			margin: 1em 0 0.9em 0;
+			.sans();
 			span {
 				display: block;
 				margin: 0px auto;
 				width: 28px;
 				height: 28px;
-				line-height: 22px;
+				line-height: 28px;
 				background: @text-accent-color;
 				border: 1px solid transparent;
 				border-radius: 34px;
@@ -741,6 +745,82 @@ main {
 				padding: 10px;
 			}
 		}
+
+
+		table.hallmenu {
+			width: 100%;
+			text-align: center;
+			background: @base-background;
+			border-collapse: collapse;
+			border: 3px solid @text-accent-color;
+			outline: 1px solid @base-background;
+			outline-offset: -2px;
+
+			tr {
+				td {
+					padding: 0;
+					a {
+						display: block;
+						position: relative;
+						color: @text-accent-color;
+						text-decoration: none;
+						.sans();
+						font-size: 0.9em;
+						font-weight: 600;
+						//background: @base-background;
+						height: 34px;
+						line-height: 34px;
+						transition: color 0.3s, background 0.3s;
+					}
+					a[active], a:hover {
+						color: @base-background;
+					}
+					a[active] {
+						background: @text-accent-color;
+					}
+					a:hover {
+						background: @text-accent-hover;
+					}
+				}
+				td:not(:first-child) {
+					a:before {
+						content: ' ';
+						display: block;
+						width: 1px;
+						height: 18px;
+						background: @text-accent-color;
+						position: absolute;
+						top: 50%;
+						margin-top: -9px;
+						left: 0px;
+					}
+				}
+				td:not(:last-child) {
+					a:after {
+						content: ' ';
+						display: block;
+						width: 1px;
+						height: 100%;
+						background: @base-background;
+						position: absolute;
+						top: 0;
+						right: -1px;
+						transition: background 0.3s;
+					}
+					a:hover:after,
+					a.active:after {
+						background: @text-accent-hover;
+					}
+				}
+			}
+		}//table.hallmenu
+		table.hallmenu.even {
+			tr td {
+				width: 50%;
+			}
+		}
+
+
 	} //article
 	.fullwidth {
 		.center(100%);
@@ -756,73 +836,7 @@ main {
 			// 	border: 1px solid red;
 			// 	justify-content: space-around;
 			// }
-			table.hallmenu {
-				width: 100%;
-				text-align: center;
-				background: @base-background;
-				border-collapse: collapse;
-				border: 3px solid @text-accent-color;
-				outline: 1px solid @base-background;
-				outline-offset: -2px;
-
-				tr {
-					td {
-						padding: 0;
-						a {
-							display: block;
-							position: relative;
-							color: @text-accent-color;
-							text-decoration: none;
-							.sans();
-							font-size: 0.9em;
-							font-weight: 600;
-							//background: @base-background;
-							height: 34px;
-							line-height: 34px;
-							transition: color 0.3s, background 0.3s;
-						}
-						a.active, a:hover {
-							color: @base-background;
-						}
-						a.active {
-							background: @text-accent-color;
-						}
-						a:hover {
-							background: @text-accent-hover;
-						}
-					}
-					td:not(:first-child) {
-						a:before {
-							content: ' ';
-							display: block;
-							width: 1px;
-							height: 18px;
-							background: @text-accent-color;
-							position: absolute;
-							top: 50%;
-							margin-top: -9px;
-							left: 0px;
-						}
-					}
-					td:not(:last-child) {
-						a:after {
-							content: ' ';
-							display: block;
-							width: 1px;
-							height: 100%;
-							background: @base-background;
-							position: absolute;
-							top: 0;
-							right: -1px;
-							transition: background 0.3s;
-						}
-						a:hover:after,
-						a.active:after {
-							background: @text-accent-hover;
-						}
-					}
-				}
-			}//table.hallmenu
+			
 
 			aside.a380 {
 				margin: 34px 100px 0 0;
@@ -867,6 +881,10 @@ main {
 			}
 		}
 	}//fullwidth
+	.fullwidth.blank {
+		padding: 0;
+		background: transparent;
+	}
 
 	article {
 		table.celebration-price {
@@ -1678,7 +1696,175 @@ main {
 
 	.fancy-corners {
 		border: 2px solid @text-accent-color;
-	}
-}
+		position: relative;
+		padding: 20px;
+		background: @base-background;
+		div.tl, div.tr, div.br, div.bl {
+			position: absolute;
+			width: 14px;
+			height: 14px;
+		}
+		div.tl {
+			border-top: 1px solid @text-accent-color;
+			border-left: 1px solid @text-accent-color;
+			top: 3px;
+			left: 3px;
+		}
+		div.tr {
+			border-top: 1px solid @text-accent-color;
+			border-right: 1px solid @text-accent-color;
+			top: 3px;
+			right: 3px;
+		}
+		div.br {
+			border-bottom: 1px solid @text-accent-color;
+			border-right: 1px solid @text-accent-color;
+			bottom: 3px;
+			right: 3px;
+		}
+		div.bl {
+			border-bottom: 1px solid @text-accent-color;
+			border-left: 1px solid @text-accent-color;
+			bottom: 3px;
+			left: 3px;
+		}
+
+		a.button.center {
+			margin: 20px auto 0;
+			span {
+				display: inline-block;
+				width: 23px;
+				height: 23px;
+				line-height: 23px;
+				border: 1px solid @base-background;
+				border-radius: 23px;
+				text-align: center;
+				overflow: hidden;
+				position: relative;
+				top: 7px;
+				margin-right: 8px;
+				.sans();
+			}
+		}
+	} //fancy-corners
+
+	article {
+		.map1 {
+			margin-top: 20px;
+			margin-bottom: 50px;
+			width: 100%;
+			height: 740px;
+			background: @text-accent-hover;
+			overflow: hidden;
+			position: relative;
+			>div.img {
+				width: 2053px;
+				height: 686px;
+				background: url('../img/plan1.png') no-repeat top left;
+				position: absolute;
+				top: 70px;
+				left: 50%;
+				margin-left: -1100px;
+				>div.marks {
+					width: 100%;
+					height: 100%;
+					>a {
+						display: block;
+						text-decoration: none;
+						width: 40px;
+						height: 40px;
+						border: 1px solid @text-accent-hover;
+						border-radius: 40px;
+						background: @base-background;
+						color: @text-accent-hover;
+						font-size: 2.5em;
+						line-height: 40px;
+						text-align: center;
+						position: absolute;
+						top: 0; 
+						left: 50%;
+						font-family: 'Quicksand', sans;
+						font-weight: 400;
+					}
+					>a:before {
+						content: '+';
+						display: inline;
+					}
+					a#m1 {top: 75px; margin-left: -220px;}
+					a#m2 {top: 65px; margin-left: 0px;}
+					a#m3 {top: 190px; margin-left: -190px;}
+					a#m4 {top: 285px; margin-left: -340px;}
+					a#m5 {top: 315px; margin-left: -70px;}
+					a#m6 {top: 130px; margin-left: 80px;}
+					a#m7 {top: 250px; margin-left: 80px;}
+					a#m8 {top: 205px; margin-left: 245px;}
+					a#m9 {top: 310px; margin-left: 340px;}
+					a#m10 {top: 390px; margin-left: 180px;}
+				}
+			}
+		}
+
+		div.stuff {
+			width: 580px;
+			height: 140px;
+			background: @base-background;
+			margin: -180px auto 0px;
+			padding: 20px;
+			text-align: center;
+			font-size: 0.9em;
+			div.stuff-select {
+				width: 280px;
+				display: flex;
+				justify-content: space-between;
+				margin: 15px auto 0px;
+				a {
+					display: block;
+					font-size: 0.9em;
+					.sans();
+					text-decoration: none;
+				}
+				a:before {
+					content: ' ';
+					display: block;
+					width: 60px;
+					height: 60px;
+					border-radius: 60px;
+					border: 2px solid @text-accent-hover;
+					background-color: @base-background;
+					background-image: url('../img/ico/stuff_sprite.png');
+					background-repeat: no-repeat;
+					transition: background-color 0.5s ease, border-color 0.5s ease, background-position 0.5s ease;
+					margin: 0px auto;
+				}
+				a:hover:before {
+					background-color: @text-accent-hover;
+				}
+				a[active]:before {
+					background-color: @text-accent-color;
+					border-color: @text-accent-color;
+				}
+				a.s1:before {
+					background-position: 18px 10px;
+				}
+				a.s1:hover:before, a.s1[active]:before {
+					background-position: 18px -78px;
+				}
+				a.s2:before {
+					background-position: -52px 10px;
+				}
+				a.s2:hover:before, a.s2[active]:before {
+					background-position: -52px -78px;
+				}
+				a.s3:before {
+					background-position: -126px 10px;
+				}
+				a.s3:hover:before, a.s3[active]:before {
+					background-position: -126px -78px;
+				}
+			}
+		}
+
+	} //article
+} //main
 
 
