@@ -1429,11 +1429,12 @@ main {
 		li {
 			color: @text-accent-color;
 			.sans();
-			display: inline-block;
+			display: inline;
 			padding: 0; 
 			margin: 0;
 			font-weight: 600;
 			list-style-type: none;
+			//text-align: center;
 
 			a {
 				display: inline-block;
@@ -1445,6 +1446,7 @@ main {
 				transition: color 0.3s, background 0.3s;
 				margin: 0px;
 				position: relative;
+				white-space: nowrap;
 				span {
 					font-size: 14px;
 					display: list-item;
@@ -1862,6 +1864,124 @@ main {
 					background-position: -126px -78px;
 				}
 			}
+		} //div.stuff
+		section.stuff2 {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 20px;
+			div.unit {
+				width: 240px;
+				text-align: center;
+				div.photo {
+					width: 200px;
+					height: 200px;
+					overflow: hidden;
+					display: block;
+					margin: 0px auto;
+					border: 1px solid transparent;
+					border-radius: 200px;
+					position: relative;
+					>div {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 0px;
+						height: 0px;
+						opacity: 0;
+						border: 0px solid transparent;
+						border-radius: 200px;
+						background: @text-accent-hover;
+						overflow: hidden;
+						transition: left 0.5s, top  0.5s, width 0.5s, height 0.5s, opacity 0.5s;
+						a {
+							display: block;
+							width: 45px;
+							height: 45px;
+							border: 1px solid @base-background;
+							border-radius: 45px;
+							position: absolute;
+							top: 75px;
+							background-image: url('../img/ico/stuff2_sprite.png');
+							background-repeat: no-repeat;
+							transition: background-color 0.5s, background-position 0.5s;
+						}
+						a.tel {
+							left: 45px;
+							background-position: 12px 11px;
+						}
+						a.tel:hover {
+							background-position: 12px -55px;
+						}
+						a.mail {
+							right: 45px;
+							background-position: -55px 11px;
+						}
+						a.mail:hover {
+							background-position: -55px -55px;
+						}
+						a:hover {
+							background-color: @base-background;
+						}
+					}
+					>div:before {
+						content: ' ';
+						display: block;
+						width: 188px;
+						height: 188px;
+						border: 1px solid @base-background;
+						border-radius: 188px;
+						background: transparent;
+						position: absolute;
+						top: 5px;
+						left: 5px;
+					}
+				}
+				div.photo:before {
+					content: ' ';
+					display: block;
+					width: 188px;
+					height: 188px;
+					border: 1px solid @base-background;
+					border-radius: 188px;
+					background: transparent;
+					position: absolute;
+					top: 5px;
+					left: 5px;
+				}
+				div.photo:hover {
+					>div {
+						width: 200px;
+						height: 200px;
+						top: 0;
+						left: 0;
+						opacity: 1;
+					}
+				}
+
+				h5 {
+					font-size: 0.9em;
+					font-weight: 600;
+					margin: 1em 0 0.1em 0;
+				}
+
+				h5+i {
+					color: #888888;
+					font-size: 0.8em;
+				}
+				h5+i+p {
+					width: 220px;
+					margin-top: 1em;
+					font-size: 0.9em;
+				}
+				h5+i+p:before {
+					content: '«';
+					display: inline;
+				}
+				h5+i+p:after {
+					content: '»';
+					display: inline;
+				}
+			}//div.unit
 		}
 
 	} //article
