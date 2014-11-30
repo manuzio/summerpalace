@@ -2219,3 +2219,51 @@ main {
 		}
 	} //article
 } //main
+
+
+
+/******** HOLIDAY ******/
+
+
+main {
+	article {
+		.banner-block {
+			display: block;
+			padding: 8px;
+			color: @text-hi-dark-color;
+			text-decoration: none;
+			border: 2px solid @text-accent-hover;
+			margin: 10px 0;
+			h3	{
+				font-weight: 400;
+				font-size: 1.45em;
+				margin: 0.3em 0;
+			}
+			p {
+				font-size: 0.95em;
+				i {
+					color: @text-accent-color;
+					text-decoration: underline;
+					font-size: 0.93em;
+				}
+			}
+			p:after {
+				display: inline-block;
+				content: '>';
+				color: @text-accent-color;
+				border: 1px solid @text-accent-color;
+				width: 12px;
+				height: 15px;
+				border-radius: 15px;
+				vertical-align: top;
+				line-height: 13px;
+				padding-left: 3px;
+				margin: 3px 4px 0 4px;
+			}
+		}
+		.banner-block:hover {
+			outline: 1px solid @text-accent-hover;
+			outline-offset: -5px;
+		}
+	}
+}
