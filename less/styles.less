@@ -815,6 +815,7 @@ main {
 			}
 		}//table.hallmenu
 		table.hallmenu.even {
+			margin-bottom: 20px;
 			tr td {
 				width: 50%;
 			}
@@ -1752,7 +1753,7 @@ main {
 
 	article {
 		.map1 {
-			margin-top: 20px;
+			//margin-top: 20px;
 			margin-bottom: 50px;
 			width: 100%;
 			height: 740px;
@@ -1988,3 +1989,233 @@ main {
 } //main
 
 
+/******** WEDDINGS **********/
+
+
+main {
+	article {
+		.feddback-form form+p {
+			width: 240px;
+			font-style: italic;
+			font-size: 0.8em;
+			line-height: 1.4em;
+		}
+
+		section.halls-list {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 60px;
+
+			a {
+				color: @text-hi-dark-color;
+				text-decoration: none;
+				text-align: center;
+				width: 156px;
+				height: 156px;
+				border: 2px solid @text-accent-hover;
+				border-radius: 156px;
+				.sans();
+				font-weight: 600;
+				overflow: visible;
+				position: relative;
+				img {
+					margin: 4px auto 8px;
+					display: block;
+					width: 142px;
+					height: 142px;
+					border: 3px solid transparent;
+					border-radius: 142px;
+				}
+				span {}
+			}
+			a:before {
+				content: ' ';
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				width: 150px;
+				height: 150px;
+				border: 1px solid @text-accent-hover;
+				border-radius: 150px;
+			}
+			a:hover:before {
+				top: -2px;
+				left: -2px;
+				border: 5px solid @text-accent-hover;
+			}
+			a[active] {
+				border-color: @text-accent-color;
+				background-color: @text-accent-color;
+			}
+			a[active]:before {
+				display: none;
+			}
+		}//section.halls-list
+
+		section.hall-descr {
+			font-size: 0.9em;
+			h3 {
+				font-weight: 400;
+				font-size: 1.45em;
+			}
+			>p {
+				margin-bottom: 60px;
+			}
+			.capt {
+				position: relative;
+				.linx {
+					width: 460px;
+					display: flex;
+					justify-content: space-between;
+					margin: 15px 0;
+					float: left;
+					span {
+						display: inline-block;
+					}
+				}
+				.opt {
+					display: block;
+					width: 460px;
+					float: right;
+					font-weight: 700;
+					height: 60px;
+					margin-top: -60px;
+					span {
+						font-weight: 400;
+						color: @text-accent-hover;
+						font-size: 3.2em;
+						display: inline-block;
+						margin: 0 9px;
+					}
+				}
+			}
+		} //section.hall-descr
+
+		section.arrival-select {
+			display: flex;
+			justify-content: space-between;
+			>div {
+				font-size: 0.9em;
+				text-align: center;
+				width: 320px;
+
+				h5 {
+					margin: 0.8em 0;
+					font-size: 1.1em;
+					font-weight: 600;
+				}
+				div.img {
+					position: relative;
+					width: 300px;
+					height: 300px;
+					overflow: hidden;
+					margin: 0px auto;
+					>a {
+						display: block;
+						position: absolute;
+						width: 300px;
+						height: 300px;
+						top: 0px;
+						left: 0px;
+						text-align: center;
+						overflow: hidden;
+						color: @base-background;
+						.sans();
+						background: rgba(186,141,50, 0.8);
+						border: 0px solid transparent;
+						border-radius: 300px;
+						top: 50%;
+						left: 50%;
+						width: 0px;
+						height: 0px;
+						transition: 
+							border-radius 0.5s, 
+							top 0.5s, 
+							left 0.5s,
+							width 0.5s,
+							height 0.5s;
+					}
+					>a:before {
+						content: ' ';
+						display: block;
+						height: 50%;
+						background: url('../img/ico/gall-large.png') no-repeat bottom center;
+						position: relative;
+					}
+				} //div.img
+				div.img:after {
+					content: ' ';
+					position: absolute;
+					top: 3px;
+					left: 3px;
+					border: 1px solid @base-background;
+					width: 292px;
+					height: 292px;
+				}
+				div.img:hover {
+					>a {
+						width: 300px;
+						height: 300px;
+						top: 0px;
+						left: 0px;
+						border-radius: 0;
+						opacity: 1;
+					}
+				}
+				>p {
+					margin: 10px;
+				}
+			}
+			>div:hover {
+				outline: 2px solid @text-accent-hover;
+			}
+		} //section.arrival-select
+
+
+		.service-menu {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+			>a {
+				display: block;
+				position: relative;
+				background-image: url('../img/ico/service-sprite.png');
+				background-repeat: no-repeat;
+				width: 140px;
+				padding-top: 90px;
+				text-align: center;
+				font-size: 0.9em;
+				font-weight: 600;
+				.sans();
+				text-decoration: none;
+				color: @text-hi-dark-color;
+			}
+			a:hover {
+				color: @text-accent-color;
+			}
+			// >a:after {
+			// 	content: ' ';
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 50%;
+			// 	width: 1px;
+			// 	background: #000;
+			// 	height: 100px;
+			// }
+
+			a.sm1 {background-position: 30px 0;}
+			a.sm1:hover {background-position: 30px -200px;}
+			a.sm2 {background-position: -110px 0;}
+			a.sm2:hover {background-position: -110px -200px;}
+			a.sm3 {background-position: -275px 0;}
+			a.sm3:hover {background-position: -275px -200px;}
+			a.sm4 {background-position: -440px 0;}
+			a.sm4:hover {background-position: -440px -200px;}
+			a.sm5 {background-position: -595px 0;}
+			a.sm5:hover {background-position: -595px -200px;}
+			a.sm6 {background-position: -772px 0;}
+			a.sm6:hover {background-position: -772px -200px;}
+		}
+	} //article
+} //main
