@@ -874,11 +874,29 @@ main {
 			margin: 8px 0;
 			position: relative;
 			>a {
+				position: relative;
 				display: inline-block;
 				width: 300px;
 				height: 200px;
-				border: 1px @text-ultralight-color;
+				border: 1px solid @text-accent-hover;
 				margin: 10px;
+			}
+			>a:hover {
+				border-color: @base-background;
+				outline: 2px solid @text-accent-color;
+			}
+			>a:hover:after {
+				content: ' ';
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba(186,141,50,0.8);
+				background-image: url('../img/ico/mag-glass.png');
+				background-repeat: no-repeat;
+				background-position: center center;
 			}
 		}
 	}//fullwidth
@@ -2265,5 +2283,12 @@ main {
 			outline: 1px solid @text-accent-hover;
 			outline-offset: -5px;
 		}
+
+		.pxborder2 {
+			margin: 2px;
+			border: 3px solid @base-background;
+			outline: 2px solid @text-accent-hover;
+		}
 	}
 }
+
