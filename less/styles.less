@@ -130,6 +130,8 @@ fieldset {
 }
 
 
+
+
 header {
 	width: 100%;
 	section#nav-top {
@@ -755,6 +757,7 @@ main {
 			border: 3px solid @text-accent-color;
 			outline: 1px solid @base-background;
 			outline-offset: -2px;
+			margin: 0px auto;
 
 			tr {
 				td {
@@ -808,7 +811,7 @@ main {
 						transition: background 0.3s;
 					}
 					a:hover:after,
-					a.active:after {
+					a[active]:after {
 						background: @text-accent-hover;
 					}
 				}
@@ -819,6 +822,9 @@ main {
 			tr td {
 				width: 50%;
 			}
+		}
+		table.hallmenu.px775 {
+			width: 775px;
 		}
 
 
@@ -1325,6 +1331,8 @@ main {
 			line-height: 40px;
 			text-align: center;
 			transition: background .5s ease, color .5s ease;
+			font-family: 'Quicksand', sans;
+			font-weight: 400;
 		}
 		.sl:hover {
 			background: @text-accent-color;
@@ -2287,8 +2295,214 @@ main {
 		.pxborder2 {
 			margin: 2px;
 			border: 3px solid @base-background;
-			outline: 2px solid @text-accent-hover;
+			outline: 2px solid @text-accent-hover; 
 		}
-	}
-}
+	} //article
+} //main
+
+
+/*************** LIVE ***********/
+
+main {
+	article {
+		div.date-select {
+			width: 280px;
+			height: 35px;
+			border: 3px solid @text-accent-hover;
+			outline: 1px solid @base-background;
+			outline-offset: -2px;
+			margin: 30px auto;
+			position: relative;
+			z-index: 5;
+			div.year {
+				overflow: visible;
+				position: relative;
+				text-align: center;
+				padding-top: 7px;
+				height: 28px;
+				span {
+					overflow: visible;
+					color: @text-accent-color;
+					border-bottom: 1px dashed @text-accent-color;
+					cursor: pointer;
+					.sans();
+					font-size: 0.9em;
+					font-weight: 600;
+					transition: background-color 0.2s, color 0.2s;
+				}
+				.month-select {
+					opacity: 0;
+					width: 282px;
+					padding: 18px 0 26px 0;
+					border: 2px solid @text-accent-hover;
+					background: @base-background;
+					position: absolute;
+					left: -3px;
+					bottom: -137px;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: flex-start;
+					align-content: align-content;
+					overflow: hidden;
+					height: 0;
+					bottom: 0;
+					transition: opacity 0.1s, height 0.3s, bottom 0.3s;
+					>a {
+						display: block;
+						width: 38px;
+						height: 38px;
+						border: 1px solid @text-accent-hover;
+						text-transform: uppercase;
+						margin: 2px;
+						text-align: center;
+						line-height: 38px;
+						text-decoration: none;
+						.sans();
+						font-size: 0.8em;
+						font-weight: 600;
+					}
+					>a[active] {
+						background: @text-accent-color;
+						color: @base-background;
+						border: 1px solid @text-accent-color;
+					}
+				}
+			}
+			div.year:hover,
+			div.year[active] {
+				background: @text-accent-hover;
+				span {
+					color: @base-background;
+					border: 0;
+				}
+				.month-select {
+					height: 92px;
+					bottom: -137px;
+					opacity: 1;
+					transition: opacity 0.4s, height 0.2s, bottom 0.2s;
+				}
+			}
+			>a {
+				display: block;
+				width: 39px;
+				height: 39px;
+				border: 1px solid @text-accent-color;
+				border-radius: 39px;
+				position: absolute;
+				top: -3px;
+				background: @base-background;
+				font-family: 'Quicksand', sans;
+				text-decoration: none;
+				line-height: 39px;
+				font-size: 1.3em;
+				font-weight: 700;
+				text-align: center;
+				color: @text-accent-hover;
+				z-index: 2;
+			}
+			>a.year-prev {
+				left: -21px;
+			}
+			>a.year-prev:before {
+				content: '<';
+				display: inline-block;
+				margin-left: 3px;
+			}
+			>a.year-next {
+				right: -21px;
+			}
+			>a.year-next:before {
+				content: '>';
+				display: inline-block;
+				margin-left: 3px;
+			}
+		} //div.date-select
+
+		section.news {
+			margin-left: 140px;
+			border-left: 1px solid @text-accent-hover;
+			padding-left: 20px;
+			position: relative;
+			overflow: visible;
+			a.news-item {
+				display: block;
+				text-decoration: none;
+				color: @text-color;
+				padding: 8px;
+				border: 2px solid @text-accent-hover;
+				position: relative;
+				overflow: visible;
+				h3 {
+					font-weight: 400;
+					margin: 0.6em 0 0.6em 0;
+				}
+				p {
+					font-size: 0.95em;
+				}
+				.tag {
+					position: absolute;
+					bottom: -2px;
+					right: -2px;
+					width: 95px;
+					height: 25px;
+					font-size: 0.9em;
+					color: @base-background;
+					text-align: center;
+					line-height: 25px;
+				}
+				.tag.news {background: #71B9C0;}
+				.tag.news:before {content: 'новость';}
+				.tag.article {background: #927EC8;}
+				.tag.article:before {content: 'статья';}
+				.tag.publication {background: #7D91C7;}
+				.tag.publication:before {content: 'публикация';}
+			}
+			a.news-item:hover {
+				outline: 1px solid @text-accent-hover;
+				outline-offset: -4px;
+			}
+			a.news-item:before {
+				content: ' ';
+				display: block;
+				width: 5px;
+				height: 5px;
+				background: @text-accent-hover;
+				border: 1px solid @text-accent-hover;
+				border-radius: 5px;
+				position: absolute;
+				top: 50%;
+				margin-top: -4px;
+				left: -26px;
+			}
+			a.news-item:after {
+				content: attr(data-date);
+				display: block;
+				width: 130px;
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				background-image: url('../img/ico/news-date-plate.png');
+				font-size: 0.8em;
+				color: @text-accent-color;
+				font-style: italic;
+				position: absolute;
+				top: 50%;
+				margin-top: -13px;
+				left: -163px;
+			}
+			a.news-item:not(:last-child) {
+				margin-bottom: 20px;
+			}
+
+		} //section.news
+		section.news+button.button {
+			margin-top: 20px;
+			padding: 13px 16px;
+			text-transform: lowercase;
+			font-size: 0.8em;
+			font-weight: 600;
+		}
+	} //article
+} //main
 
