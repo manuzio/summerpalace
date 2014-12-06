@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Праздники в Летнем Дворце</title>
+        <title>page: <?=(isset($_GET['page'])?$_GET['page']:'unset')?> - Летний дворец</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,8 +32,8 @@
             <section id="nav-top">
                 <nav>
                     <a href="?page=live" id="live">Летний дворец LIVE</a>
-                    <a href="#">Ресторан</a>
-                    <a href="#">История</a>
+                    <a href="?page=restaurant">Ресторан</a>
+                    <a href="?page=story">История</a>
                     <a href="#">Команда</a>
                     <a href="#">Контакты</a>
                     <a href="#">Услуги и цены</a>

@@ -115,6 +115,10 @@ p {
 a {
 	color: @text-accent-color;
 }
+a:hover {
+	text-decoration: none;
+	color: lighten(@text-accent-color, 10%);
+}
 
 audio,
 canvas,
@@ -130,7 +134,9 @@ fieldset {
 }
 
 
-
+.callmeback:hover {
+	border-bottom: 0!important;
+}
 
 header {
 	width: 100%;
@@ -152,6 +158,12 @@ header {
 				background: url('../img/ico/live.png') no-repeat center left;
 				padding-left: 26px;
 				margin-right: 50px;
+			}
+			a:hover,
+			a[active],
+			a#live:hover,
+			a#live[active] {
+				color: @text-accent-hover;
 			}
 			aside {
 				float: right;
@@ -838,6 +850,12 @@ main {
 
 		.px620 {
 			width: 620px;
+		}
+		.px700 {
+			width: 700px;
+		}
+		.p14px p {
+			font-size: 0.9em;
 		}
 
 
@@ -2381,8 +2399,10 @@ main {
 						.sans();
 						font-size: 0.8em;
 						font-weight: 600;
+						transition: all 0.3s; 
 					}
-					>a[active] {
+					>a[active],
+					>a:hover {
 						background: @text-accent-color;
 						color: @base-background;
 						border: 1px solid @text-accent-color;
@@ -2547,3 +2567,44 @@ main {
 	} //article
 } //main
 
+
+
+/************** RESTAURANT ************/
+
+
+
+main {
+	article {
+		.restaurant_menu {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			margin-top: 30px;
+			>a {
+				display: block;
+				width: 150px;
+				text-decoration: none;
+				color: @text-hi-dark-color;
+				.sans();
+				font-weight: 600;
+				text-align: center;
+			}
+			>a:before {
+				display: inline-block;
+				width: 100%;
+				height: 110px;
+				content: ' ';
+				background-image: url('../img/ico/restaurant_sprite.png');
+				background-repeat: no-repeat;
+			}
+			>a.rm1:before {background-position: 45px 0px;}
+			>a.rm1:hover:before {background-position: 45px -210px;}
+			>a.rm2:before {background-position: -120px 0px;}
+			>a.rm2:hover:before {background-position: -120px -210px;}
+			>a.rm3:before {background-position: -280px 0px;}
+			>a.rm3:hover:before {background-position: -280px -210px;}
+			>a.rm4:before {background-position: -472px 0px;}
+			>a.rm4:hover:before {background-position: -472px -210px;}
+		}
+	} //article
+} //main
