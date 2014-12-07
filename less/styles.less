@@ -73,7 +73,7 @@ hr {
     height: 1px;
     width: 100%;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid @text-accent-hover;
     margin: 0;
     padding: 0;
 }
@@ -101,6 +101,11 @@ h2 {
 h3 {
 	font-weight: 600;
 	color: @text-big-color;
+}
+
+h3+i {
+	font-size: 0.8em;
+	color: @text-ultralight-color;
 }
 
 h5, h6 {
@@ -347,6 +352,20 @@ main {
 		margin: 0 0.6em;
 	} // пуленепробиваемый, под разноцветный фон
 
+	h1+strong {
+		display: block;
+		width: 770px;
+		text-align: center;
+	}
+	h1+strong:after {
+		content: ' ';
+		display: block;
+		margin: 25px auto;
+		width: 140px;
+		height: 1px;
+		background: @text-accent-hover;
+	}
+
 	.outlined span{
 		background: @base-background;
 		position: relative;
@@ -370,6 +389,16 @@ main {
 
 	.big {
 		font-size: 2em;
+	}
+	.big+h5 {
+		font-size: 0.9em;
+		font-weight: 600;
+		color: @text-hi-dark-color;
+		margin-bottom: 0.3em;
+	}
+	.big+h5+i{
+		font-size: 0.8em;
+		color: @text-ultralight-color;
 	}
 
 	article {
@@ -852,7 +881,17 @@ main {
 			width: 620px;
 		}
 		.px700 {
-			width: 700px;
+			width: 700px!important;
+		}
+		.px680 {
+			width: 680px!important;
+		}
+		.px220 {
+			width: 220px!important;
+		}
+		.px300 {
+			width: 300px!important;
+			max-width: 300px!important;
 		}
 		.p14px p {
 			font-size: 0.9em;
@@ -1191,6 +1230,7 @@ footer {
 			position: absolute;
 			width: 40px;
 			height: 40px;
+			line-height: 33px;
 			border: 1px solid transparent;
 			border-radius: 40px;
 			bottom: -21px;
@@ -1199,6 +1239,10 @@ footer {
 			outline: 0;
 			background: #141E28;
 			color: @base-background;
+			font-family: 'Quicksand', sans;
+			font-weight: 700;
+			transform: rotate(90deg);
+			transform-origin: 50% 50%;
 		}
 	} //light
 	.dark {
@@ -1368,7 +1412,7 @@ main {
 			text-decoration: none;
 			line-height: 40px;
 			text-align: center;
-			transition: background .5s ease, color .5s ease;
+			transition: background .5s, color .5s;
 			font-family: 'Quicksand', sans;
 			font-weight: 400;
 		}
@@ -1438,13 +1482,16 @@ main {
 
 		label {
 			font-size: 0.9em;
-			input[type=text] {
+			input[type=text], textarea {
 				padding: 5px;
 				outline: 0;
 				border: 1px solid @text-accent-color;
 				background: @base-background;
 				width: 247px;
 				margin-bottom: 15px;
+			}
+			textarea {
+				height: 100px;
 			}
 		}
 		input[type=submit] {
@@ -1455,14 +1502,23 @@ main {
 			background: @text-accent-hover;
 			border: 0;
 			outline: 0;
-			font-size: 0.9em;
+			font-size: 0.8em;
 			color: @base-background;
+			font-weight: 600;
 			transition: background 0.5s ease;
+			.sans();
 		}
 
 		input[type=submit]:hover {
 			background: @text-accent-color;
 		}
+		
+	}
+
+	figure.feddback-form + strong {
+		display: block;
+		margin: 0 0 10px 0;
+		text-align: center;
 	}
 
 	p.quote {}
@@ -1687,6 +1743,25 @@ main {
 		padding: 0;
 	}
 
+	.button.call {
+		width: 260px;
+		height: 40px;
+		line-height: 40px;
+		padding: 0;
+		margin: 0px 20px;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+	.button.call:before {
+		display: inline-block;
+		width: 18px;
+		height: 19px;
+		content: ' ';
+		background: url('../img/ico/phone_w.png') no-repeat bottom left;
+		margin-right: 7px;
+		vertical-align: sub;
+	}
+
 	section.sims {
 		display: flex;
 		justify-content: space-between;
@@ -1705,7 +1780,7 @@ main {
 				border: 1px solid @text-accent-color;
 				outline: 1px solid @text-accent-color;
 				outline-offset: -3px;
-				transition: background 0.5s ease, color 0.5s ease;
+				transition: background 0.5s, color 0.5s;
 				>span {
 					display: inline-block;
 					width: 24px;
@@ -1715,7 +1790,7 @@ main {
 					border-radius: 24px;
 					line-height: 24px;
 					margin-bottom: -8px;
-					transition: border-color 0.5s ease;
+					transition: border-color 0.5s;
 				}
 				>div {
 					opacity: 0;
@@ -1727,7 +1802,7 @@ main {
 					background: rgba(207, 166, 78, 0.9);
 					outline: 1px solid @base-background;
 					outline-offset: -3px;
-					transition: opacity 0.5s ease;
+					transition: opacity 0.5s;
 					padding: 20px 30px;
 					p:first-child {
 						font-weight: 700;
@@ -1900,7 +1975,7 @@ main {
 					background-color: @base-background;
 					background-image: url('../img/ico/stuff_sprite.png');
 					background-repeat: no-repeat;
-					transition: background-color 0.5s ease, border-color 0.5s ease, background-position 0.5s ease;
+					transition: background-color 0.5s, border-color 0.5s, background-position 0.5s;
 					margin: 0px auto;
 				}
 				a:hover:before {
@@ -1933,10 +2008,11 @@ main {
 		section.stuff2 {
 			display: flex;
 			justify-content: space-between;
-			margin-top: 20px;
+			flex-wrap: wrap;
 			div.unit {
-				width: 240px;
+				width: 230px;
 				text-align: center;
+				margin-top: 20px;
 				div.photo {
 					width: 200px;
 					height: 200px;
@@ -2027,6 +2103,13 @@ main {
 					font-size: 0.9em;
 					font-weight: 600;
 					margin: 1em 0 0.1em 0;
+				}
+				h5>a {
+					color: inherit;
+					text-decoration: none;
+				}
+				h5>a:hover {
+					color: @text-accent-color;
 				}
 
 				h5+i {
@@ -2605,6 +2688,46 @@ main {
 			>a.rm3:hover:before {background-position: -280px -210px;}
 			>a.rm4:before {background-position: -472px 0px;}
 			>a.rm4:hover:before {background-position: -472px -210px;}
+		}
+	} //article
+} //main
+
+
+
+/************** TEAM ************/
+
+
+main {
+	article {
+		div.photo220border {
+			display: inline-block;
+			border: 5px solid @text-accent-hover;
+			border-radius: 220px;
+			background: @text-accent-hover;
+			overflow: visible;
+			position: relative;
+			margin: 0 20px 20px 0;
+			img {
+				width: 220px;
+				height: 220px;
+				border: 4px solid @base-background;
+				border-radius: 220px;
+			}
+		}
+		div.photo220border:before {
+			content: ' ';
+			display: block;
+			border: 1px solid @base-background;
+			width: 220px;
+			height: 220px;
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			border-radius: 220px;
+			padding: 5px;
+		}
+		.feddback-form2 {
+			margin-left: 20px;
 		}
 	} //article
 } //main
