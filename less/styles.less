@@ -112,6 +112,29 @@ h5, h6 {
 	color: @text-hi-dark-color;
 }
 
+h5 {
+	font-size: 1em;
+	font-weight: 600;
+	.sans();
+	margin: 0.7em 0;
+}
+
+h5:first-child {
+	margin-top: 0;
+}
+
+small {
+	font-size: 0.9em;
+	color: @text-ultralight-color;
+}
+small+h5 {
+	margin-top: 0.2em;
+}
+p+small {
+	display: inline-block;
+	margin-top: 1.2em;
+}
+
 p {
 	margin: 0;
 	padding: 0;
@@ -892,6 +915,9 @@ main {
 		.px300 {
 			width: 300px!important;
 			max-width: 300px!important;
+		}
+		.px460 {
+			width: 460px!important;
 		}
 		.p14px p {
 			font-size: 0.9em;
@@ -2694,7 +2720,7 @@ main {
 
 
 
-/************** TEAM ************/
+/************** TEAM, CONTACT ************/
 
 
 main {
@@ -2725,9 +2751,18 @@ main {
 			left: -2px;
 			border-radius: 220px;
 			padding: 5px;
+			box-shadow: 0 0 1px @base-background;
 		}
 		.feddback-form2 {
 			margin-left: 20px;
 		}
+
 	} //article
+	
+	article.map {
+		width: 100%;
+		height: 400px;
+		background: #aacbd9 url('../img/map1.jpg') no-repeat top center;
+		margin-top: 25px;
+	}
 } //main
