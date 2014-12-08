@@ -148,6 +148,11 @@ a:hover {
 	color: lighten(@text-accent-color, 10%);
 }
 
+.border2x2 {
+	border: 2px solid @base-background;
+	outline: 2px solid @text-accent-hover;
+}
+
 audio,
 canvas,
 img,
@@ -508,6 +513,7 @@ main {
 			margin: 22px 0 45px 0;
 			tr {
 				td {
+					padding-right: 20px;
 					vertical-align: top;
 					width: 50%;
 					padding-bottom: 6px;
@@ -923,6 +929,9 @@ main {
 		.px460 {
 			width: 460px!important;
 		}
+		.px380 {
+			width: 380px!important;
+		}
 		.per100 {
 			width: 100%!important;
 		}
@@ -1009,6 +1018,52 @@ main {
 			}
 		}
 	}//fullwidth
+	.order-now-form {
+		.center(100%);
+		background: #E1C893;
+		padding: 16px 0 16px 0;
+		>section {
+			.center();
+			.oform {
+				display: flex;
+				justify-content: space-between;
+				font-size: 0.9em;
+				color: #7A5E21;
+				label {
+					input[type=text],
+					textarea {
+						border: 1px solid @text-accent-color;
+						width: 298px;
+						outline: 0;
+						background: @base-background;
+						font-family: inherit;
+						height: 20px;
+						padding: 5px;
+						margin: 6px 0 10px 0;
+					}
+					textarea {
+						height: 90px;
+					}
+				}
+				.button {
+					font-size: 0.9em;
+					margin: 14px 0 0 0;
+					padding: 15px 25px;
+					width: auto;
+					height: auto;
+					line-height: 1em;
+				}
+				>div.c1, 
+				>div.c2 {
+					width: 320px;
+				}
+				>div.c3 {
+					width: 240px;
+					padding-top: 19px;
+				}
+			}
+		}
+	}
 	.fullwidth.blank {
 		padding: 0;
 		background: transparent;
@@ -1413,23 +1468,36 @@ footer {
 	}//.dark
 }
 
+
+header+footer {
+	margin-top: 100px;
+}
+
 /********* БАНКЕТЫ *********/
 
 main {
 	section.slider1 {
-		.center(100%);
+		.center();
 		overflow: hidden;
+		//overflow: visible;
 		white-space: nowrap;
 		position: relative;
 		height: 500px;
 		word-spacing: 0px;
 		font-size: 0;
-		margin: 0 0 30px 0;
+		margin: 0 auto 30px;
+		width: 100%;
 		img {
 			display: inline-block;
 			margin: 0;
 			font-size: 0;
+			position: 'relative';
+			left: 0%;
 
+		}
+		.imgcont {
+			.center();
+			position: relative;
 		}
 		.sl {
 			font-size: 22px;
@@ -1449,6 +1517,10 @@ main {
 			font-family: 'Quicksand', sans;
 			font-weight: 400;
 		}
+		.sl:active,
+		.sl:focus {
+			outline: none;
+		}
 		.sl:hover {
 			background: @text-accent-color;
 			color: @base-background;
@@ -1457,7 +1529,7 @@ main {
 			margin-left: -460px;
 		}
 		.sl.next {
-			margin-left: 460px;
+			margin-left: 420px;
 		}
 		.pager {
 			position: absolute;
@@ -1475,11 +1547,19 @@ main {
 				border-radius: 12px;
 				margin: 0 5px;
 				box-shadow: 0 0 3px @base-background;
+				transition: all 0.5s;
 			}
 			a[active] {
 				border: 1px solid @text-accent-color;
 				background: @base-background;
 				box-shadow: 0 0 3px @text-accent-color;
+			}
+			a:hover {
+				border: 1px solid @text-accent-color;
+			}
+			a:active,
+			a:focus {
+				outline: none;
 			}
 		}
 	} //section.slider1
