@@ -28,9 +28,9 @@ $('.slider1').each(function (i, sl) {
 		var position = 0;
 		$(this).css({position: 'relative'});
 
-		$(imgcont).children('img:not(.sli'+position+')').css({opacity: 0.5});
-		$(imgcont).children('img.sli'+position).css({opacity: 1});
-		$($(sl).find('.pager a').get(0)).attr('active', true);
+		// $(imgcont).children('img:not(.sli'+position+')').css({opacity: 0.5});
+		// $(imgcont).children('img.sli'+position).css({opacity: 1});
+		// $($(sl).find('.pager a').get(0)).attr('active', true);
 		
 		function slide (pos) {
 			var l = 0 - (pos*940);
@@ -41,6 +41,26 @@ $('.slider1').each(function (i, sl) {
 				$(sl).find('.pager a').removeAttr('active');
 				$($(sl).find('.pager a').get(position)).attr('active', true);
 			}
+
+			if($(sl).children('.caption').length == 0) {
+				var caption = $('<div class="caption" />');
+				caption.css({opacity: 0});
+				$(sl).append(caption);
+			}
+			else {
+				var caption = $(sl).children('.caption');
+				caption.transition({opacity: 0}, 300, function() {
+
+				});
+			}
+
+			if($(imgcont).siblings('.captioncont').children('div[data-img='+position+']').length != 0) {
+				caption.transition({opacity: 0}, 100, function() {
+					caption.html($(imgcont).siblings('.captioncont').children('div[data-img='+position+']').html());
+					caption.transition({opacity: 1}, 300);
+				});
+			}
+
 			$(imgcont).children('img:not(.sli'+position+')').transition({opacity: 0.5}, 500);
 			$(imgcont).children('img.sli'+position).transition({opacity: 1}, 500);
 			$(imgcont).transition({left: l+'px'}, 500, function() {
@@ -57,4 +77,9 @@ $('.slider1').each(function (i, sl) {
 			return false;
 		});
 
+		slide(0);
+
 });//$('.slider1').each
+
+
+
