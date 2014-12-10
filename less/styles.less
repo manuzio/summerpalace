@@ -2992,6 +2992,7 @@ main {
 			overflow: hidden;
 			white-space: nowrap;
 			position: relative;
+			vertical-align: top;
 			button.prev,
 			button.next {
 				display: block;
@@ -3008,6 +3009,7 @@ main {
 				color: @text-accent-hover;
 				transition: color 0.3s, background-color 0.3s;
 				position: absolute;
+				z-index: 3;
 			}
 			button.prev:before {
 				content: '<';
@@ -3032,7 +3034,83 @@ main {
 				padding-left: 4px;
 			}
 
-			
+			a.item {
+				vertical-align: top;
+				white-space: normal;
+				text-decoration: none;
+				display: inline-block;
+				width: 280px;
+				height: 350px;
+				color: @text-color;
+				background: @base-background;
+				position: relative;
+				margin: 135px 11px 30px 1px;
+				border: 1px solid #DDDDDD;
+				padding: 10px;
+				outline: 1px solid transparent;
+				transition: all 0.3s;
+				h4 {
+					display: block;
+					margin: 0;
+					width: 100%;
+					height: 0;
+					overflow: visible;
+					text-align: center;
+					position: relative;
+					top: -145px;
+				}
+				h4 i {
+					font-size: 0.6em;
+					color: @text-ultralight-color;
+					display: block;
+					margin: 0;
+					width: 100%;
+					text-align: center;
+				}
+				img {
+					margin-bottom: 15px;
+				}
+				p {
+					font-size: 0.9em;
+				}
+			}
+			a.item:hover {
+				border: 1px solid @text-accent-hover;
+				outline: 1px solid @text-accent-hover;
+			}
+			a.item:before {
+				content: ' ';
+				display: block;
+				width: 12px;
+				height: 12px;
+				background: @text-accent-hover;
+				border: 3px solid  @base-background;
+				box-shadow: 
+					1px 0 0 @text-accent-hover,
+					1px 1px 0 @text-accent-hover,
+					0px 1px 0 @text-accent-hover,
+					-1px 1px 0 @text-accent-hover,
+					-1px 0 0 @text-accent-hover,
+					-1px -1px 0 @text-accent-hover,
+					0 -1px 0 @text-accent-hover,
+					1px -1px 0 @text-accent-hover
+					;
+				border-radius: 18px;
+				position: absolute;
+				left: 50%;
+				margin-left: -9px;
+				top: -43px;
+			}
 		} //.live-widget
+		.live-widget:before {
+			content: ' ';
+			display: block;
+			position: absolute;
+			top: 100px;
+			width: 100%;
+			height: 2px;
+			border-top: 1px solid @text-accent-hover;
+			border-bottom: 1px solid @text-accent-hover;
+		}
 	} //article
 } //main
