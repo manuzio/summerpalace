@@ -82,4 +82,29 @@ $('.slider1').each(function (i, sl) {
 });//$('.slider1').each
 
 
+$('.indexswitcher').ready(function() {
+	var isw = $('.indexswitcher');
+	$('.indexswitcher-buttons button').click(function() {
+		var b = $(this);
+		b.siblings().removeAttr('active');
+		b.attr('active', true);
+		$('.indexswitcher').children(':first-child').transition({marginTop: '-'+(740*b.index())+'px'}, 500);
+		return false;
+	});
+});
+
+$('.map1 .marks>a').click(function() {
+	if(!$(this).attr('active')) {
+		$(this).siblings().removeAttr('active');
+		$(this).attr('active', true);
+	}
+	else {
+		$('.map1 .marks>a').removeAttr('active');
+	}
+	return false;
+});
+
+$('.map1 .marks>.shadow').click(function() {
+	$(this).siblings().removeAttr('active');
+}); 
 

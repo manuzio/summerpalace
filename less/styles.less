@@ -945,6 +945,7 @@ main {
 		.center(100%);
 		background: @accent-light;
 		padding: 16px 0 16px 0;
+		position: relative;
 
 
 		>section {
@@ -2088,24 +2089,68 @@ main {
 					>a {
 						display: block;
 						text-decoration: none;
-						width: 48px;
-						height: 48px;
-						border: 1px solid @text-accent-hover;
-						border-radius: 40px;
-						background: @base-background;
-						color: @text-accent-hover;
-						font-size: 3.4em;
-						line-height: 41px;
-						text-align: center;
+						width: 52px;
+						height: 52px;
 						position: absolute;
 						top: 0; 
 						left: 50%;
 						font-weight: 400;
-						box-shadow: 0 0 1px @base-background;
+						overflow: hidden;
+						color: inherit;
+						div {
+							display: none;
+							opacity: 0;
+							position: absolute;
+							width: 380px;
+							bottom: -156px;
+							right: -84px;
+							text-align: center;
+							transition: all 0.5s;
+							>* {
+								color: @base-background;
+								font-size: 0.9em;
+							}
+							h5 {
+								text-transform: uppercase;
+							}
+							img {
+								width: 210px;
+								height: 210px;
+								border: 6px solid @base-background;
+								border-radius: 210px;
+								margin-top: 20px;
+							}
+						}
 					}
 					>a:before {
+						margin-top: 2px;
+						margin-left: 2px;
+						background: @base-background;
+						border: 1px solid @text-accent-hover;
+						border-radius: 40px;
+						box-shadow: 0 0 1px @base-background;
+						content: ' ';
+						display: block;
+						width: 48px;
+						height: 48px;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+					>a:after {
+						color: @text-accent-hover;
+						text-align: center;
+						font-size: 3.4em;
+						line-height: 41px;
 						content: '+';
-						display: inline;
+						display: block;
+						width: 48px;
+						height: 48px;
+						position: absolute;
+						top: 3px;
+						left: 3px;
+						//outline: 1px solid red;
+						transition: all 0.5s;
 					}
 					>a:active,
 					>a:focus {
@@ -2121,6 +2166,40 @@ main {
 					a#m8 {top: 205px; margin-left: 245px;}
 					a#m9 {top: 320px; margin-left: 318px;}
 					a#m10 {top: 436px; margin-left: 146px;}
+
+					>a[active] {
+						overflow: visible;
+						div {
+							display: block;
+							z-index: 2;
+							opacity: 1;
+						}
+					}
+					>a[active]:after {
+						transform: rotate(45deg);
+						transform-origin: 50% 50%;
+						z-index: 4;
+					}
+					>a[active]:before {
+						z-index: 3;
+					}
+					div.shadow {
+						width: 0;
+						height: 0;
+						opacity: 0;
+						background: #000000;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+						transition: opacity 1s ease;
+					}
+					>a[active] ~ div.shadow {
+						display: block;
+						opacity: 0.7;
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
 		}
@@ -3112,5 +3191,119 @@ main {
 			border-top: 1px solid @text-accent-hover;
 			border-bottom: 1px solid @text-accent-hover;
 		}
+
 	} //article
+	article.movebottom {
+		margin-top: 0;
+		margin-bottom: -145px;
+		position: relative;
+		z-index: 3;
+		height: 145px;
+		background: @accent-light;
+		padding-top: 0px;
+		section {
+			padding: 10px 20px 30px 20px;
+			h2 {
+				margin-top: 0;
+			}
+		}
+	}
+	article.indexswitcher {
+		height: 740px;
+		background: #000!important;
+		position: relative;
+		overflow: hidden;
+		>* {
+			height: 740px;
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		section.slider1 {
+			height: 500px;
+			margin-top: 160px;
+			margin-bottom: 80px;
+		}
+		article iframe {
+			margin: 153px 0 0 -470px;
+			position: relative;
+			left: 50%;
+		}
+	}
+	.indexswitcher-buttons {
+		//background: #EEEEEE;
+		margin-top: -50px;
+		font-size: 0px;
+		button {
+			outline: 0;
+			border: 0;
+			background: @base-background;
+			height: 50px;
+			line-height: 50px;
+			padding: 0;
+			text-align: center;
+			font-size: 13px;
+			font-weight: 600;
+			color: @text-accent-color;
+			width: 235px;
+			text-transform: uppercase;
+			border-bottom: 1px solid #EEEEEE;
+			border-right: 1px solid #EEEEEE;
+			box-shadow: inset 0px 2px 5px rgba(0,0,0,0);
+			transition: background 0.3s, box-shadow 0.3s;
+			vertical-align: top;
+		}
+		button:hover {
+			box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+			border-bottom: 1px solid #F2F2F2;
+			border-right: 1px solid #F2F2F2;
+			background: #F9F59F9;
+		}
+		button[active],
+		button:active {
+			background: #F8F8F8;
+			box-shadow: inset 0px 2px 5px rgba(0,0,0,0.2);
+			border-bottom: 1px solid #F2F2F2;
+			border-right: 1px solid #F2F2F2;
+		}
+		button:last-child {
+			border-right: 0px!important;
+		}
+		button.isb1:before {
+			content: ' ';
+			display: inline-block;
+			width: 25px;
+			height: 24px;
+			background: url('../img/ico/isbutns_sprite.png') no-repeat;
+			background-position: 0px 0px;
+			margin: 12px 10px 0 0;
+		}
+		button.isb2:before {
+			content: ' ';
+			display: inline-block;
+			width: 20px;
+			height: 24px;
+			background: url('../img/ico/isbutns_sprite.png') no-repeat;
+			background-position: -41px 0px;
+			margin: 12px 10px 0 0;
+		}
+		button.isb3:before {
+			content: ' ';
+			display: inline-block;
+			width: 20px;
+			height: 24px;
+			background: url('../img/ico/isbutns_sprite.png') no-repeat;
+			background-position: -77px 0px;
+			margin: 12px 10px 0 0;
+		}
+		button.isb4:before {
+			content: ' ';
+			display: inline-block;
+			width: 30px;
+			height: 24px;
+			background: url('../img/ico/isbutns_sprite.png') no-repeat;
+			background-position: -115px 0px;
+			margin: 12px 10px 0 0;
+		}
+	}
 } //main
