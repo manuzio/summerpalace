@@ -3333,3 +3333,191 @@ main {
 		}
 	}
 } //main
+
+
+
+/******************* OVERLAY *************/
+
+div.overlay[active] {
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+}
+
+div.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	opacity: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 20;
+	font-size: 0.9em;
+	overflow: hidden;
+	transition: width 0.2s, height 0.2s, opacity 0.6s;
+
+	.message {
+		display: block;
+		background: @accent-light;
+		border: 2px solid @text-accent-color;
+		outline: 1px solid @text-accent-color;
+		outline-offset: -5px;
+		width: 260px;
+		height: 260px;
+		margin: 30px;
+		padding: 18px;
+		position: relative;
+
+		input[type=text] {
+			padding: 5px;
+			height: 18px;
+			line-height: 20px;
+			.sans();
+			width: 248px;
+			margin: 5px 0 10px 0;
+			outline: 0;
+			border: 1px solid @text-accent-hover;
+			transition: border-color 0.3s; 
+		}
+		input[type=text]:focus {
+			border: 1px solid @text-accent-color;
+		}
+
+		input[type=submit],
+		button {
+			background: @text-accent-hover;
+			border: 0;
+			outline: 0;
+			.sans();
+			font-size: 0.9em;
+			color: @base-background;
+			font-weight: 600;
+			text-transform: uppercase;
+			transition: border-color 0.3s;
+			text-align: center;
+			width: 260px;
+			height: 30px;
+			line-height: 30px;
+			padding: 0;
+			margin: 7px 0;
+		}
+
+		input[type=submit]:hover,
+		button:hover {
+			background: @text-accent-color;
+		}
+
+		i:last-child {
+			display: block;
+			color: @text-ultralight-color;
+			font-size: 0.9em;
+		}
+	}
+
+	.error, .success {
+		text-align: center;
+		height: auto;
+		strong {
+			.sans();
+			font-size: 1.1em;
+			display: block;
+			margin-bottom: 7px 
+		}
+	}
+
+	.success strong {color: #00661A;}
+	.error strong {color: #E13237;}
+
+	.pending .sw {
+		width: 43px;
+		height: 46px;
+		position: relative;
+		top: 50%;
+		margin-top: -23px;
+		left: 50%;
+		margin-left: -22px;
+	}
+
+	.pending .sw .watch {
+		display: block;
+		width: 43px;
+		height: 46px;
+		background: url('../img/ico/sandwatch.png') no-repeat top left;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		-webkit-animation: sandwatch 2s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
+    	animation: sandwatch 2s ease-in 0s infinite normal; /* Standard syntax */
+	}
+
+	.pending .sw .sand {
+		display: block;
+		width: 19px;
+		height: 36px;
+		height: 18px;
+		background-image: url('../img/ico/sandwatch.png');
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 5px;
+		left: 12px;
+		background-position: -65px -5px;
+
+		transform-origin: 50% 0%;
+
+		-webkit-animation: sand 1s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
+    	animation: sand 1s ease-in 0s infinite normal; /* Standard syntax */
+	}
+
+	@-webkit-keyframes sandwatch {
+		0% {transform: rotate(0deg);}
+		25% {transform: rotate(0deg);}
+		50% {transform: rotate(180deg);}
+		75% {transform: rotate(180deg);}
+		100% {transform: rotate(360deg);}
+	}
+	@keyframes sandwatch {
+		0% {transform: rotate(0deg);}
+		25% {transform: rotate(0deg);}
+		50% {transform: rotate(180deg);}
+		75% {transform: rotate(180deg);}
+		100% {transform: rotate(360deg);}
+	}
+
+	@-webkit-keyframes sand {
+		0% {
+			transform: rotate(0deg);
+			top: 5px;
+			background-position: -65px -5px;
+		}
+		50% {
+			transform: rotate(0deg);
+			top: 23px;
+			background-position: -65px -23px;
+		}
+		100% {
+			transform: rotate(180deg);
+			top: 23px;
+			background-position: -65px -23px;
+		}
+	}
+
+	@keyframes sand {
+		0% {
+			transform: rotate(0deg);
+			margin-top: 0px;
+			background-position: -65px -5px;
+		}
+		50% {
+			transform: rotate(0deg);
+			margin-top: 18px;
+			background-position: -65px -23px;
+		}
+		100% {
+			transform: rotate(180deg);
+			margin-top: 18px;
+			background-position: -65px -23px;
+		}
+	}
+}

@@ -128,9 +128,15 @@ $('.live-widget').ready(function() {
 		}
 		if(pos==0) w.find('button.prev').attr('disabled', true);
 		else w.find('button.prev').removeAttr('disabled');
-		
+
 		if(pos >= (c-2)) w.find('button.next').attr('disabled', true);
 		else w.find('button.next').removeAttr('disabled');
 		return false;
 	});
 }); //live-widget
+
+
+$('a.callmeback').click(function() {
+ 	$('div.overlay').css('display', 'block').attr('active', true);
+	return false;
+});
