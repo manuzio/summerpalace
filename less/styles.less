@@ -2150,7 +2150,7 @@ main {
 						top: 3px;
 						left: 3px;
 						//outline: 1px solid red;
-						transition: all 0.5s;
+						transition: transform 0.5s;
 					}
 					>a:active,
 					>a:focus {
@@ -3113,6 +3113,13 @@ main {
 				padding-left: 4px;
 			}
 
+			button[disabled],
+			button[disabled]:hover {
+				color: #CCCCCC;
+				border-color: #CCCCCC;
+				background: rgba(255,255,255,0.3);
+			}
+
 			a.item {
 				vertical-align: top;
 				white-space: normal;
@@ -3127,7 +3134,7 @@ main {
 				border: 1px solid #DDDDDD;
 				padding: 10px;
 				outline: 1px solid transparent;
-				transition: all 0.3s;
+				transition: all 0.3s ease;
 				h4 {
 					display: block;
 					margin: 0;
@@ -3180,6 +3187,13 @@ main {
 				margin-left: -9px;
 				top: -43px;
 			}
+
+			a.item[disabled] {
+				opacity: 0;
+			}
+			a.item[disabled] + a.item {
+				margin-left: -316px;
+			}
 		} //.live-widget
 		.live-widget:before {
 			content: ' ';
@@ -3228,6 +3242,18 @@ main {
 			margin: 153px 0 0 -470px;
 			position: relative;
 			left: 50%;
+		}
+		article {
+			.map1 {
+				.img {
+					top: 60px;
+					.marks {
+						.shadow {
+							top: -60px;
+						}
+					}
+				}
+			}
 		}
 	}
 	.indexswitcher-buttons {

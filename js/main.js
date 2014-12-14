@@ -91,20 +91,46 @@ $('.indexswitcher').ready(function() {
 		$('.indexswitcher').children(':first-child').transition({marginTop: '-'+(740*b.index())+'px'}, 500);
 		return false;
 	});
-});
+}); //indexswitcher
 
-$('.map1 .marks>a').click(function() {
-	if(!$(this).attr('active')) {
+$('.map1').ready(function() {
+	$('.map1 .marks>a').click(function() {
+		if(!$(this).attr('active')) {
+			$(this).siblings().removeAttr('active');
+			$(this).attr('active', true);
+		}
+		else {
+			$('.map1 .marks>a').removeAttr('active');
+		}
+		return false;
+	});
+
+	$('.map1 .marks>.shadow').click(function() {
 		$(this).siblings().removeAttr('active');
-		$(this).attr('active', true);
-	}
-	else {
-		$('.map1 .marks>a').removeAttr('active');
-	}
-	return false;
-});
+	}); 
+}); //map1
 
-$('.map1 .marks>.shadow').click(function() {
-	$(this).siblings().removeAttr('active');
-}); 
 
+
+$('.live-widget').ready(function() {
+	var w = $('.live-widget');
+	var pos = 0; 
+	var c = w.find('a.item').length;
+	w.children('button.next, button.prev').click(function() {
+		if($(this).is(':disabled')) return false;
+		if($(this).is('.next') && pos < (c-2)) {
+			$(w.find('a.item').get(pos)).attr('disabled', true);
+			pos++;
+		}
+		if($(this).is('.prev') && pos > 0) {
+			w.find('a.item[disabled]').last().removeAttr('disabled');
+			pos--;
+		}
+		if(pos==0) w.find('button.prev').attr('disabled', true);
+		else w.find('button.prev').removeAttr('disabled');
+		
+		if(pos >= (c-2)) w.find('button.next').attr('disabled', true);
+		else w.find('button.next').removeAttr('disabled');
+		return false;
+	});
+}); //live-widget
