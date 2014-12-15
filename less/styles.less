@@ -857,6 +857,7 @@ main {
 						height: 34px;
 						line-height: 34px;
 						transition: color 0.3s, background 0.3s;
+						outline: 0;
 					}
 					a[active], a:hover {
 						color: @base-background;
@@ -992,30 +993,123 @@ main {
 			white-space: nowrap;
 			margin: 8px 0;
 			position: relative;
-			>a {
+			.imgcont {
+				width: 940px;
+				margin: 0px auto;
+				font-size: 0px;
 				position: relative;
-				display: inline-block;
-				width: 300px;
-				height: 200px;
-				border: 1px solid @text-accent-hover;
-				margin: 10px;
-			}
-			>a:hover {
-				border-color: @base-background;
-				outline: 2px solid @text-accent-color;
-			}
-			>a:hover:after {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
 				left: 0;
-				background-color: rgba(186,141,50,0.8);
-				background-image: url('../img/ico/mag-glass.png');
-				background-repeat: no-repeat;
-				background-position: center center;
+				top: 0;
+				//transition: left 0.5s;
+				>a {
+					position: relative;
+					display: inline-block;
+					width: 300px;
+					height: 200px;
+					border: 1px solid @text-accent-hover;
+					margin: 10px 17px 10px 0;
+					transition: all 0.3s;
+				}
+				a:not([active]) {
+					opacity: 0.5;
+				}
+				>a:before {
+					content: ' ';
+					display: block;
+					width: 0;
+					height: 0;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					border-radius: 100px;	
+					background-color: rgba(186,141,50,0.8);
+					opacity: 1;
+					transition: all 0.3s;
+				}
+				>a:after {
+					content: ' ';
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-image: url('../img/ico/mag-glass.png');
+					background-repeat: no-repeat;
+					background-position: center center;
+					opacity: 0;
+					transition: all 0.3s;
+				}
+				>a[active]:hover {
+					border-color: @base-background;
+					outline: 2px solid @text-accent-color;
+				}
+				>a[active]:hover:before {
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					border-radius: 0;
+					opacity: 1;
+				}
+				>a[active]:hover:after {
+					opacity: 1;
+				}
+
+			}
+			.controls {
+				width: 940px;
+				margin: 0px auto;
+				position: relative;
+				z-index: 4;
+				button.prev,
+				button.next {
+					display: block;
+					outline: 0;
+					width: 38px;
+					padding: 0;
+					height: 200px;
+					// border: 1px solid @text-accent-hover;
+					// border-radius: 38px;
+					border:0;
+					background: transparent;
+					font-family: 'Quicksand', sans;
+					font-size: 1.5em;
+					line-height: 36px;
+					color: @text-accent-hover;
+					transition: color 0.3s, background-color 0.3s;
+					position: absolute;
+					z-index: 3;
+				}
+				button.prev:before {
+					content: '<';
+					display: inline;
+				}
+				button.next:before {
+					content: '>';
+					display: inline;
+				}
+				button.prev:hover,
+				button.next:hover {
+					color: @base-background;
+					background-color: @text-accent-hover;
+				}
+				button.prev {
+					bottom: -211px;
+					left: 0px;
+				}
+				button.next {
+					bottom: -211px;
+					right: 0px;
+					padding-left: 4px;
+				}
+
+				button[disabled],
+				button[disabled]:hover {
+					color: #CCCCCC;
+					border-color: #CCCCCC;
+					background: rgba(255,255,255,0.3);
+				}
 			}
 		}
 	}//fullwidth
@@ -3367,7 +3461,9 @@ div.overlay {
 		height: 260px;
 		margin: 30px;
 		padding: 18px;
+		
 		position: relative;
+		float: left;
 
 		input[type=text] {
 			padding: 5px;
@@ -3412,6 +3508,26 @@ div.overlay {
 			display: block;
 			color: @text-ultralight-color;
 			font-size: 0.9em;
+		}
+
+		a.close {
+			outline: 0;
+			text-decoration: none;
+			font-family: 'Quicksand', sans;
+			font-weight: 400;
+			font-size: 1.8em;
+			line-height: 20px;
+			text-align: center;
+			display: block;
+			width: 20px;
+			height: 20px;
+			border: 1px solid transparent;
+			border-radius: 20px;
+			background: @base-background;
+			position: absolute;
+			top: -27px;
+			right: -27px;
+			transform: rotate(45deg);
 		}
 	}
 
@@ -3518,6 +3634,20 @@ div.overlay {
 			transform: rotate(180deg);
 			margin-top: 18px;
 			background-position: -65px -23px;
+		}
+	}
+}
+
+
+
+/******* tabs-sw *******/
+
+main {
+	article {
+		.tabs-sw {}
+
+		[data-tabs-id][data-tab]:not([active]) {
+			display: none;
 		}
 	}
 }

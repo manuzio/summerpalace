@@ -137,6 +137,33 @@ $('.live-widget').ready(function() {
 
 
 $('a.callmeback').click(function() {
- 	$('div.overlay').css('display', 'block').attr('active', true);
+ 	$('div.overlay').attr('active', true);
 	return false;
 });
+
+$('.message a.close').click(function() {
+ 	$(this).transition({rotate: '405deg'}, 500, 'ease', function() {
+ 		$(this).css({rotate: '45deg'});
+ 		$('div.overlay').removeAttr('active');	
+ 	});
+	return false;
+});
+
+$('.tabs-sw[data-tabs-id] a[data-tab]').click(function() {
+	var tabsId = $(this).parents('.tabs-sw[data-tabs-id]').attr('data-tabs-id');
+	$('body').find('[data-tabs-id='+tabsId+']:not(.tabs-sw)').removeAttr('active');
+	$('body').find('[data-tabs-id='+tabsId+'][data-tab='+$(this).attr('data-tab')+']').attr('active', true);
+	$(this).parents('.tabs-sw[data-tabs-id]').find('a[data-tab]').removeAttr('active');
+	$(this).attr('active', true);
+	return false;
+});
+
+
+$('.gallery1 .controls button').click(function() {
+	var p = $(this).parents('.gallery1').find('.imgcont');
+	if($(this).is('.next') && (0 - parseInt(p.css('left'))/319) < p.children('a').length - 3) p.css({left: "-=319px"});
+	if($(this).is('.prev') && parseInt(p.css('left')) < 0) p.css({left: "+=319px"});
+	p.children('a').removeAttr('active');
+	p.children('a').slice((0 - parseInt(p.css('left'))/319), (0 - parseInt(p.css('left'))/319)+3).attr('active', true);
+	return false;
+})
