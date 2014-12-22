@@ -1,5 +1,4 @@
 <main>
-	<h1 class="outlined"><span>Банкеты в Летнем дворце</span></h1>
 	<section class="slider1">
         <div class="imgcont">
             <img src="https://api.fnkr.net/testimg/940x500/00CED1/FFF/?text=img0">
@@ -31,7 +30,7 @@
 		<a href="#" class="button button2">УЗНАТЬ БОЛЬШЕ</a>
 		</div>
 		<div class="pxborder2 right">
-			<iframe width="540" height="304" src="//www.youtube.com/embed/SDAp8OAeR04?rel=0" frameborder="0" allowfullscreen></iframe>
+			<iframe width="520" height="304" src="//www.youtube.com/embed/SDAp8OAeR04?rel=0" frameborder="0" allowfullscreen></iframe>
 		</div>
 		<div class="clearfix"></div>
 	</article>
@@ -90,6 +89,8 @@
 		</section>
 		<section>
 			<a href="#" class="button button2">СМОТРЕТЬ ВСЮ ЛЕНТУ</a>
+            <br>
+            <br>
 		</section>
 	</article>
 	<article class="movebottom">
@@ -149,9 +150,11 @@
 			<div class="pager"></div>
 		</section>
 		<article>
-			<iframe width="940" height="530" src="//www.youtube.com/embed/SDAp8OAeR04?rel=0" frameborder="0" allowfullscreen></iframe>
+			<iframe width="940" height="530" src="//www.youtube.com/embed/SDAp8OAeR04?rel=0" frameborder="0" allowfullscreen class="youtube"></iframe>
 		</article>
-		<article class="map"></article>
+		<article class="fullwidth blank">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d16028.876285964801!2d29.989923366520124!3d59.855624544817154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469638affa08e6f3%3A0x121eba8e5408f7a5!2z0JvQtdGC0L3QuNC5INCU0LLQvtGA0LXRhiwg0KDQtdGB0YLQvtGA0LDQvQ!5e0!3m2!1sru!2sru!4v1419096071326" width="100%" height="740" frameborder="0" style="border:0"></iframe>      
+        </article>
 
 
 	</article>
@@ -211,13 +214,48 @@
     <article>
         <div class="stuff">
             <p>Летний дворец — не просто команда профессионалов, но и дружный слаженный и современный коллектив. Мы открыты для новых задач и готовы к новым вызовам!</p>
-            <div class="stuff-select">
-                <a href="#" class="s1">официанты</a>
-                <a href="#" class="s2" active>повара</a>
-                <a href="#" class="s3">менеджеры</a>
+            <div class="tabs-sw stuff-select" data-tabs-id="stuff">
+                <a href="#" class="s1" data-tab="waiter">официанты</a>
+                <a href="#" class="s2" data-tab="cook" active>повара</a>
+                <a href="#" class="s3" data-tab="manager">менеджеры</a>
             </div>
         </div>
-        <section class="stuff2">
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="waiter">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff1.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="manager">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff2.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="cook" active>
             <div class="unit">
                 <div class="photo">
                     <img src="content/stuff1.jpg">
@@ -314,7 +352,6 @@
                 <i>повар горячего цеха</i>
                 <p>Мы – овощи, и этим мы гордимся!</p>
             </div>
-            
         </section>
     </article>
 

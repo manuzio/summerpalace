@@ -13,13 +13,48 @@
     <article>
         <div class="stuff">
             <p>Летний дворец — не просто команда профессионалов, но и дружный слаженный и современный коллектив. Мы открыты для новых задач и готовы к новым вызовам!</p>
-            <div class="stuff-select">
-                <a href="#" class="s1">официанты</a>
-                <a href="#" class="s2" active>повара</a>
-                <a href="#" class="s3">менеджеры</a>
+            <div class="tabs-sw stuff-select" data-tabs-id="stuff">
+                <a href="#" class="s1" data-tab="waiter">официанты</a>
+                <a href="#" class="s2" data-tab="cook" active>повара</a>
+                <a href="#" class="s3" data-tab="manager">менеджеры</a>
             </div>
         </div>
-        <section class="stuff2">
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="waiter">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff1.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="manager">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff2.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="cook" active>
             <div class="unit">
                 <div class="photo">
                     <img src="content/stuff1.jpg">
@@ -116,7 +151,6 @@
                 <i>повар горячего цеха</i>
                 <p>Мы – овощи, и этим мы гордимся!</p>
             </div>
-            
         </section>
     </article>
 </main>

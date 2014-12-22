@@ -211,15 +211,21 @@
         </section>
 
         <section class="gallery1" data-tabs-id="tsw1" data-tab="t2">
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+            <div class="controls">
+                <button class="prev"></button>
+                <button class="next"></button>
+            </div>
+            <div class="imgcont">
+                <a href="#" active><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+            </div>
         </section>
 
     </article>
@@ -319,15 +325,21 @@
         </section>
         <h4>Фотогалерея</h4>
  		<section class="gallery1">
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+           <div class="controls">
+                <button class="prev"></button>
+                <button class="next"></button>
+            </div>
+            <div class="imgcont">
+                <a href="#" active><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+            </div>
         </section>
         <section class="fancy-corners">
             <div class="tl"></div>
@@ -348,14 +360,15 @@
             <span>7</span>
         </div>
         <h2>Залы и территория</h2>
-        <table class="hallmenu even">
+        <table class="hallmenu even tabs-sw" data-tabs-id="hallmenu">
             <tr>
-                <td><a href="#">Залы дворца</a></td>
-                <td><a href="#" active>Прилегающая территория</a></td>
+                <td><a href="#" data-tab="halls">Залы дворца</a></td>
+                <td><a href="#" data-tab="terr" active>Прилегающая территория</a></td>
             </tr>
         </table>
     </article>
-    <article class="fullwidth blank">
+
+    <article class="fullwidth blank" data-tabs-id="hallmenu" data-tab="terr" active>
         <div class="map1">
             <div class="img">
                 <div class="marks">
@@ -380,6 +393,54 @@
             </div>
         </div>
     </article>
+
+    <article class="fullwidth" data-tabs-id="hallmenu" data-tab="halls" >
+        <section class="halls-list">
+            <a href="#" active>
+                <img src="content/stuff1.jpg">
+                <span>Розовый зал</span>
+            </a>
+            <a href="#">
+                <img src="content/stuff2.jpg">
+                <span>Живописный зал</span>
+            </a>
+            <a href="#">
+                <img src="content/stuff3.jpg">
+                <span>Малые залы</span>
+            </a>
+            <a href="#">
+                <img src="content/stuff4.jpg">
+                <span>Галереи</span>
+            </a>
+        </section>
+        <section class="hall-descr">
+            <img src="http://placekitten.com/460/325" alt="" class="left">
+            <h3>Розовый и Живописный зал</h3>
+            <p>Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут.</p>
+            <div class="clearfix"></div>
+            <div class="capt">
+                <div class="linx">
+                    <span>
+                        <img src="img/ico/psd.png">
+                        <a href="#">Схема зала</a>
+                    </span>
+                    <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#">Фотогалерея</a>
+                    </span>
+                    <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#">Описание зала</a>
+                    </span>
+                </div>
+                <div class="opt">
+                    Площадь <span>840 м<sup>2</sup></span> до <span>800</span> человек
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+    </article>
+
     <article id="b8">
          <div class="pagenum">
             <span>8</span>
@@ -399,13 +460,48 @@
     <article>
         <div class="stuff">
             <p>Летний дворец — не просто команда профессионалов, но и дружный слаженный и современный коллектив. Мы открыты для новых задач и готовы к новым вызовам!</p>
-            <div class="stuff-select">
-                <a href="#" class="s1">официанты</a>
-                <a href="#" class="s2" active>повара</a>
-                <a href="#" class="s3">менеджеры</a>
+            <div class="tabs-sw stuff-select" data-tabs-id="stuff">
+                <a href="#" class="s1" data-tab="waiter">официанты</a>
+                <a href="#" class="s2" data-tab="cook" active>повара</a>
+                <a href="#" class="s3" data-tab="manager">менеджеры</a>
             </div>
         </div>
-        <section class="stuff2">
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="waiter">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff1.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="manager">
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff2.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+        </section>
+
+
+
+        <section class="stuff2" data-tabs-id="stuff" data-tab="cook" active>
             <div class="unit">
                 <div class="photo">
                     <img src="content/stuff1.jpg">
@@ -454,7 +550,54 @@
                 <i>повар горячего цеха</i>
                 <p>Мы – овощи, и этим мы гордимся!</p>
             </div>
-            
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff4.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff4.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff4.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
+            <div class="unit">
+                <div class="photo">
+                    <img src="content/stuff4.jpg">
+                    <div>
+                        <a href="tel:+79219876543" class="tel"></a>
+                        <a href="mailto:povar@povar.cook" class="mail"></a>
+                    </div>
+                </div>
+                <h5><a href="?page=team_unit">Константин Константинович Константинопольский</a></h5>
+                <i>повар горячего цеха</i>
+                <p>Мы – овощи, и этим мы гордимся!</p>
+            </div>
         </section>
     </article>
 </main>

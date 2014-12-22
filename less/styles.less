@@ -46,6 +46,17 @@ body {
 	min-width: 960px;
 }
 
+body,html
+{
+    height:100%;
+}
+
+body.noscroll {
+	overflow: hidden;
+}
+
+
+
 .sans {
 	font-family: 'Open Sans', 'Tahoma', 'Verdana', sans-serif;
 }
@@ -1493,6 +1504,16 @@ footer {
 					color: @base-background;
 					font-family: Georgia, 'Times New Roman', serif;
 					margin: 0 0 15px 0;
+					transition: border-color 0.5s;
+				}
+				input[type=text]:focus,
+				textarea:focus {
+					border-color: @text-accent-hover;
+				}
+
+				input[type=text][error],
+				textarea[error] {
+					border-color: #f04040;
 				}
 
 				textarea {
@@ -2086,14 +2107,14 @@ main {
 					}
 				}
 			}
+			// >a:hover {
+			// 	background: @text-accent-hover;
+			// 	color: @base-background;
+			// 	>span {
+			// 		border-color: @base-background;
+			// 	}
+			// }
 			>a:hover {
-				background: @text-accent-hover;
-				color: @base-background;
-				>span {
-					border-color: @base-background;
-				}
-			}
-			>a[active] {
 				background: @text-accent-color;
 				color: @base-background;
 				>span {
@@ -2316,6 +2337,7 @@ main {
 					font-size: 0.9em;
 					.sans();
 					text-decoration: none;
+					outline: 0;
 				}
 				a:before {
 					content: ' ';
@@ -2517,6 +2539,7 @@ main {
 				font-weight: 600;
 				overflow: visible;
 				position: relative;
+				outline: 0;
 				img {
 					margin: 4px auto 8px;
 					display: block;
@@ -2616,10 +2639,6 @@ main {
 					>a {
 						display: block;
 						position: absolute;
-						width: 300px;
-						height: 300px;
-						top: 0px;
-						left: 0px;
 						text-align: center;
 						overflow: hidden;
 						color: @base-background;
@@ -2641,8 +2660,13 @@ main {
 					>a:before {
 						content: ' ';
 						display: block;
-						height: 50%;
-						background: url('../img/ico/gall-large.png') no-repeat bottom center;
+						height: 60px;
+						width: 45px;
+						top: 0;
+						left: 50%;
+						margin-left: -23px;
+						margin-top: 95px;
+						background: url('../img/ico/gall-large.png') no-repeat top left;
 						position: relative;
 					}
 				} //div.img
@@ -2692,8 +2716,10 @@ main {
 				.sans();
 				text-decoration: none;
 				color: @text-hi-dark-color;
+				outline: 0;
 			}
-			a:hover {
+			a:hover,
+			a[active] {
 				color: @text-accent-color;
 			}
 			// >a:after {
@@ -3332,7 +3358,7 @@ main {
 			margin-top: 160px;
 			margin-bottom: 80px;
 		}
-		article iframe {
+		article iframe.youtube {
 			margin: 153px 0 0 -470px;
 			position: relative;
 			left: 50%;
@@ -3643,11 +3669,9 @@ div.overlay {
 /******* tabs-sw *******/
 
 main {
-	article {
 		.tabs-sw {}
 
 		[data-tabs-id][data-tab]:not([active]) {
 			display: none;
 		}
-	}
 }

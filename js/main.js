@@ -79,6 +79,26 @@ $('.slider1').each(function (i, sl) {
 
 		slide(0);
 
+		//touch events
+
+		$(sl).swipe({
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				if(distance > 300) {
+					if(direction == 'left') slide(position+1);
+					else slide(position-1);
+				}
+				else slide(position);
+			},
+			swipeStatus:function(event, phase, direction, distance, duration, fingerCount)
+			{
+				var delta = 0;
+				var left = 0 - (940*position);
+				if(direction == 'left') delta = 0 - distance;
+				else delta = distance;
+				$(imgcont).css({left: (left+delta)+'px'});
+			}
+		});
+
 });//$('.slider1').each
 
 
@@ -138,10 +158,12 @@ $('.live-widget').ready(function() {
 
 $('a.callmeback').click(function() {
  	$('div.overlay').attr('active', true);
+ 	$('body').addClass('noscroll');
 	return false;
 });
 
 $('.message a.close').click(function() {
+	$('body').removeClass('noscroll');
  	$(this).transition({rotate: '405deg'}, 500, 'ease', function() {
  		$(this).css({rotate: '45deg'});
  		$('div.overlay').removeAttr('active');	
@@ -167,3 +189,8 @@ $('.gallery1 .controls button').click(function() {
 	p.children('a').slice((0 - parseInt(p.css('left'))/319), (0 - parseInt(p.css('left'))/319)+3).attr('active', true);
 	return false;
 })
+
+$('.scrolltop').click(function() {
+	 $("html, body").animate({ scrollTop: 0 }, 500);
+	return false;
+});

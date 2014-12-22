@@ -121,33 +121,62 @@
         </div>
         <h2>Залы и территория</h2>
         <p class="align-center">Летний дворец предоставляет уникальные возможности по организации мероприятий любой сложности.</p>
-        <table class="hallmenu even">
+        <table class="hallmenu even tabs-sw" data-tabs-id="hallmenu">
             <tr>
-                <td><a href="#" active>Залы дворца</a></td>
-                <td><a href="#">Прилегающая территория</a></td>
+                <td><a href="#" data-tab="halls" active>Залы дворца</a></td>
+                <td><a href="#" data-tab="terr">Прилегающая территория</a></td>
             </tr>
         </table>
     </article>
-    <article class="fullwidth">
-    	<section class="halls-list">
-    		<a href="#" active>
+
+
+    
+    <article class="fullwidth blank" data-tabs-id="hallmenu" data-tab="terr">
+        <div class="map1">
+            <div class="img">
+                <div class="marks">
+                    <a href="#" id="m1"></a>
+                    <a href="#" id="m2"></a>
+                    <a href="#" id="m3"></a>
+                    <a href="#" id="m4"></a>
+                    <a href="#" id="m5"></a>
+                    <a href="#" id="m6"></a>
+                    <a href="#" id="m7"></a>
+                    <a href="#" id="m8"></a>
+                    <a href="#" id="m9"></a>
+                    <a href="#" id="m10">
+                        <div>
+                            <h5>Розовый и голубой залы</h5>
+                            <p>Общая площадь Розового и Живописного залов — 840 кв. м. В таком пространстве с комформтом разместиться до 800 человек при фуршетном накрытии</p>
+                            <img src="https://api.fnkr.net/testimg/210x210/00CED1/FFF/?text=takoi+zal">
+                        </div>
+                    </a>
+                    <div class="shadow"></div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="fullwidth" data-tabs-id="hallmenu" data-tab="halls" active>
+    	<section class="halls-list tabs-sw" data-tabs-id="halls-list">
+    		<a href="#" data-tab="hl1" active>
     			<img src="content/stuff1.jpg">
     			<span>Розовый зал</span>
     		</a>
-    		<a href="#">
+    		<a href="#" data-tab="hl2">
     			<img src="content/stuff2.jpg">
     			<span>Живописный зал</span>
     		</a>
-    		<a href="#">
+    		<a href="#" data-tab="hl3">
     			<img src="content/stuff3.jpg">
     			<span>Малые залы</span>
     		</a>
-    		<a href="#">
+    		<a href="#" data-tab="hl4">
     			<img src="content/stuff4.jpg">
     			<span>Галереи</span>
     		</a>
     	</section>
-    	<section class="hall-descr">
+    	<section class="hall-descr" data-tabs-id="halls-list" data-tab="hl1" active>
 	    	<img src="http://placekitten.com/460/325" alt="" class="left">
 	    	<h3>Розовый и Живописный зал</h3>
 	    	<p>Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут.</p>
@@ -161,10 +190,6 @@
 	    			<span>
 	    				<img src="img/ico/gall.png">
 	    				<a href="#">Фотогалерея</a>
-	    			</span>
-	    			<span>
-	    				<img src="img/ico/gall.png">
-	    				<a href="#">Описание зала</a>
 	    			</span>
 	    		</div>
 	    		<div class="opt">
@@ -190,8 +215,6 @@
         		<p>Короткое описание этого вида прибытия. Можно в две строки. Можно и в три строки. Можно даже больше, в четыре строки. Пожалуй, достаточно.
         		НЕТ ПЕШИ БОЛЬШЫ!</p>
         	</div>
-        </section>
-        <section class="arrival-select">
         	<div>
         		<h5>На карете</h5>
         		<div class="img">
@@ -200,8 +223,6 @@
         		</div>
         		<p>Короткое описание этого вида прибытия. Можно в две строки. Можно и в три строки. Можно даже больше, в четыре строки. Пожалуй, достаточно.</p>
         	</div>
-        </section>
-        <section class="arrival-select">
         	<div>
         		<h5>Пешком</h5>
         		<div class="img">
@@ -256,40 +277,48 @@
                 <span>6</span>
             </div>
             <h2>Варианты банкетов</h2>
-            <table class="hallmenu">
+            <table class="hallmenu tabs-sw" data-tabs-id="dti1">
                 <tr>
-                    <td><a href="#" active>Китайский дворец</a></td>
-                    <td><a href="#">Большой дворец</a></td>
-                    <td><a href="#">Александирия</a></td>
-                    <td><a href="#">Розовый зал</a></td>
-                    <td><a href="#">Живописный зал</a></td>
-                    <td><a href="#">Летний павильон</a></td>
+                    <td><a href="#" data-tab="dt1" active>Китайский дворец</a></td>
+                    <td><a href="#" data-tab="dt2">Большой дворец</a></td>
+                    <td><a href="#" data-tab="dt3">Александирия</a></td>
+                    <td><a href="#" data-tab="dt4">Розовый зал</a></td>
+                    <td><a href="#" data-tab="dt5">Живописный зал</a></td>
+                    <td><a href="#" data-tab="dt6">Летний павильон</a></td>
                 </tr>
             </table>
-            <aside class="left a380">
-                <p>до <span class="big">20</span> человек</p>
-                <hr>
-                <p>Аренда зала от <span class="big">4 500</span> рублей</p>
-                <p>Стоимость банкета от <span class="big">3 000</span> руб / человека</p>
-            </aside>
-            <aside class="left dload">
-                <p><a href="#">Банкет на 3 500 р/человека</a></p>
-                <p><a href="#">Банкет на 4 800 р/человека</a></p>
-                <p><a href="#">Банкет на 5 200 р/человека</a></p>
-                <p><a href="#">Отношение к алкоголю</a></p>
-            </aside>
-            <div class="clearfix"></div>
+            <section data-tabs-id="dti1" data-tab="dt1" active>
+                <aside class="left a380">
+                    <p>до <span class="big">20</span> человек</p>
+                    <hr>
+                    <p>Аренда зала от <span class="big">4 500</span> рублей</p>
+                    <p>Стоимость банкета от <span class="big">3 000</span> руб / человека</p>
+                </aside>
+                <aside class="left dload">
+                    <p><a href="#">Банкет на 3 500 р/человека</a></p>
+                    <p><a href="#">Банкет на 4 800 р/человека</a></p>
+                    <p><a href="#">Банкет на 5 200 р/человека</a></p>
+                    <p><a href="#">Отношение к алкоголю</a></p>
+                </aside>
+                <div class="clearfix"></div>
+            </section>
         </section>
-        <section class="gallery1">
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+        <section class="gallery1" data-tabs-id="dti1" data-tab="dt1" active>
+            <div class="controls">
+                <button class="prev"></button>
+                <button class="next"></button>
+            </div>
+            <div class="imgcont">
+                <a href="#" active><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+            </div>
         </section>
     </article>
     <article id="b7">
@@ -297,19 +326,21 @@
             <span>7</span>
         </div>
         <h2>Услуги</h2>
-        <section class="service-menu">
-        	<a href="#" class="sm1">Кетеринг</a>
-        	<a href="#" class="sm2">Конференции</a>
-        	<a href="#" class="sm3">Презентации</a>
-        	<a href="#" class="sm4">Банкетные мероприятия</a>
-        	<a href="#" class="sm5">Переговоры</a>
-        	<a href="#" class="sm6">Тур-ланчи</a>
+        <section class="service-menu tabs-sw" data-tabs-id="service-menu">
+        	<a href="#" class="sm1" data-tab="sm1" active>Кетеринг</a>
+        	<a href="#" class="sm2" data-tab="sm2">Конференции</a>
+        	<a href="#" class="sm3" data-tab="sm3">Презентации</a>
+        	<a href="#" class="sm4" data-tab="sm4">Банкетные мероприятия</a>
+        	<a href="#" class="sm5" data-tab="sm5">Переговоры</a>
+        	<a href="#" class="sm6" data-tab="sm6">Тур-ланчи</a>
         </section>
         <section class="triple-bordered">
-            	<img src="http://placekitten.com/290/200" alt="" class="left"> 
-            	<p>Нашей кухней можно насладиться и вне стен Летнего Дворца. Воспользуйтесь услугой кейтеринга – выездного ресторанного обслуживания. Мы составим для Вас меню, подберем площадку и организуем питание на любом мероприятии. Только свежие продукты, лучшие рецепты, изысканная подача и лучший сервис.
-				Мы можем по Вашему желанию привезти шатры любых размеров, все красиво оформить тканями и цветами, привезти сцену, звуковую и световую аппаратуру, пригласить артистов, то есть полностью организовать Ваш праздник.</p> 
-            	<div class="clearfix"></div>
+                <span data-tabs-id="service-menu" data-tab="sm1" active>
+                	<img src="http://placekitten.com/290/200" alt="" class="left"> 
+                	<p>Нашей кухней можно насладиться и вне стен Летнего Дворца. Воспользуйтесь услугой кейтеринга – выездного ресторанного обслуживания. Мы составим для Вас меню, подберем площадку и организуем питание на любом мероприятии. Только свежие продукты, лучшие рецепты, изысканная подача и лучший сервис.
+    				Мы можем по Вашему желанию привезти шатры любых размеров, все красиво оформить тканями и цветами, привезти сцену, звуковую и световую аппаратуру, пригласить артистов, то есть полностью организовать Ваш праздник.</p> 
+                	<div class="clearfix"></div>
+                </span>
             </section>
     </article>
     <article class="fullwidth" id="b8">
@@ -325,15 +356,21 @@
         </section>
         <h4>Фотогалерея</h4>
  		<section class="gallery1">
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
-            <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+            <div class="controls">
+                <button class="prev"></button>
+                <button class="next"></button>
+            </div>
+            <div class="imgcont">
+                <a href="#" active><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#" active><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-1.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-2.jpg" alt=""></a>
+                <a href="#"><img src="content/300Untitled-3.jpg" alt=""></a>
+            </div>
         </section>
         <section class="fancy-corners">
             <div class="tl"></div>
