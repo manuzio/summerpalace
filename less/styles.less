@@ -39,6 +39,11 @@ html {
     font-family: Georgia, 'Times New Roman', serif;
 }
 
+html * {
+	max-height: 999999px;
+}
+
+
 body {
 	//background: url('../img/01_content.png') @base-background;
 	background-position: top center;
@@ -196,6 +201,7 @@ header {
 				margin-right: 48px;
 				line-height: 2.5em;
 				text-decoration: none;
+				transition: color 0.3s;
 			}
 			a#live {
 				color: @text-darkest-color;
@@ -289,25 +295,87 @@ header {
 			.center(781px);
 			.sans();
 			line-height: 3.4em;
-			a {
+			font-size: 0.9em;
+			max-height: 999999px;
+			>a, >span {
 				text-transform: uppercase;
 				color: @text-big-color;
 				font-weight: 700;
-				font-size: 0.9em;
 				text-decoration: none;
 				margin-right: 73px;
+				transition: color 0.3s;
+				z-index: 3;
 			}
-			a:last-child {
+			>a:last-child, >span:last-child {
 				margin-right: 0px;
 			}
-			a.agency {
+			.agency {
 				text-transform: none;
-				background: url('../img/ico/sandwitch.png') no-repeat 0% 40%;
+				background: url('../img/ico/sandwitch.png') no-repeat 0% 50%;
 				padding-left: 26px;
 				margin-left: 10px;
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				.submenu {
+					font-family: Georgia, 'Times New Roman', serif;
+					color: @text-accent-color;
+					font-size: 1em;
+					font-weight: 400;
+					position: absolute;
+					background: @base-background;
+					top: 48px;
+					//left: -310px;
+					width: 520px;
+					border-top: 1px solid #FAF4EB;
+					border-right: 1px solid #eeeeee;
+					border-bottom: 1px solid #eeeeee;
+					border-left: 1px solid #eeeeee;
+					box-shadow: 0 2px 2px #f9f9f9;
+					padding: 15px 20px 20px 20px;
+					cursor: default;
+					line-height: 1.4em;
+					overflow: hidden;
+					height: 0;
+					opacity: 0;
+					left: -3000px;
+					transition: all 0.5s;
+					div.right {
+						float: right;
+						width: 215px;
+						border-left: 1px solid #eeeeee;
+						padding-left: 15px;
+						font-size: 0.95em;
+						a {
+							text-decoration: none;
+							color: @text-hi-dark-color;
+							display: inline-block;
+							margin-bottom: 15px;
+							.sans();
+							font-weight: 600;
+						}
+						a:last-child {
+							margin-bottom: 0;
+						}
+						a:hover,
+						a:focus,
+						a[active] {
+							color: @text-accent-hover;
+							transition: color 0.2s;
+						}
+					}
+				}
 			}
-			a:hover, 
-			a[active] {
+			.agency[active],
+			.agency:hover {
+				.submenu {
+					opacity: 1;
+					height: auto;
+					left: -310px;
+				}
+			}
+			>a:hover, >span:hover, 
+			>a[active], >span[active]  {
 				color: @text-accent-hover;
 			}
 		}

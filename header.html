@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>page: <?=(isset($_GET['page'])?$_GET['page']:'unset')?> - Летний дворец</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=940">
+        <meta name="viewport" content="width=960">
 
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -67,7 +67,18 @@
                     <a href="?page=weddings">Свадьбы</a>
                     <a href="?page=holiday">Праздники</a>
                     <a href="?page=catering">Кейтеринг</a>
-                    <a href="?page=corporate" class="agency">Для агентств</a>
+                    <span class="agency">
+                        Для агентств
+                        <div class="submenu">
+                            <div class="right">
+                                <a href="?page=corporate">Организация мероприятий</a>
+                                <a href="?page=corporate">Организация кейтеринга</a>
+                                <a href="?page=corporate">Площадка Летний Дворец</a>
+                                <a href="?page=corporate">Уникальные возможности</a>
+                            </div>
+                            <i>Мы работаем с кем попало</i>
+                        </div>
+                    </span>
                 </nav>
             </section>
             <?=(
