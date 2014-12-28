@@ -2411,7 +2411,7 @@ main {
 			text-align: center;
 			font-size: 0.9em;
 			div.stuff-select {
-				width: 310px;
+				width: 315px;
 				display: flex;
 				justify-content: space-between;
 				margin: 15px auto 0px;
@@ -2421,6 +2421,8 @@ main {
 					.sans();
 					text-decoration: none;
 					outline: 0;
+					width: 105px;
+					text-align: center;
 				}
 				a:before {
 					content: ' ';
@@ -2464,10 +2466,10 @@ main {
 		} //div.stuff
 		section.stuff2 {
 			display: flex;
-			justify-content: space-between;
+			justify-content: center;
 			flex-wrap: wrap;
 			div.unit {
-				width: 230px;
+				width: 234px;
 				text-align: center;
 				margin-top: 20px;
 				div.photo {
@@ -3815,5 +3817,103 @@ body {
 	.bnqt-selection.bsmShadow {
 		margin: 0 auto;
 		background: @base-background;
+	}
+}
+
+/******** LIGHTBOX ********/
+
+.lightbox {
+	text-align: center;
+	max-width: 100%;
+	.img {
+		display: inline-block;
+		margin: 100px auto 0;
+		max-width: 100%;
+		padding: 7px;
+		border: 2px solid @text-accent-hover;
+		outline: 1px solid @text-accent-hover;
+		outline-offset: -5px;
+		cursor: pointer; 
+		position: relative;
+		img {
+			cursor: pointer;
+			max-width: 100%;
+		}
+		.controls {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 0;
+			height: 0;
+			overflow: visible;
+			a {
+				font-size: 22px;
+				display: block;
+				position: absolute;
+				top: 10px;
+				left: 50%;
+				width: 40px;
+				height: 40px;
+				border: 1px solid @text-accent-color;
+				border-radius: 40px;
+				background: rgba(255, 255, 255, 0.9);
+				text-decoration: none;
+				line-height: 40px;
+				text-align: center;
+				transition: background .5s, color .5s;
+				font-family: 'Quicksand', sans;
+				font-weight: 400;
+			}
+			a:active,
+			a:focus {
+				outline: none;
+			}
+			a:hover {
+				background: @text-accent-color;
+				color: @base-background;
+			}
+			a.prev {
+				margin-left: -445px;
+			}
+			a.next {
+				margin-left: 405px;
+			}
+			a.close {
+				margin-left: -20px;
+				transform: rotate(45deg);
+				font-size: 2.6em;
+				font-weight: 400;
+			}
+		}
+	}
+	.preview {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 15px;
+		a {
+			//opacity: 0.5;
+			display: block;
+			position: relative;
+			margin: 5px;
+			img {
+				height: 60px;
+			}
+		}
+		a:after {
+			content: ' ';
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: @base-background;
+			opacity: 0.5;
+			transition: opacity 0.5s;
+		}
+		a[active]:after {
+			opacity: 0;
+		}
 	}
 }

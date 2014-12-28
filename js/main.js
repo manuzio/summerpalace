@@ -27,10 +27,6 @@ $('.slider1').each(function (i, sl) {
 
 		var position = 0;
 		$(this).css({position: 'relative'});
-
-		// $(imgcont).children('img:not(.sli'+position+')').css({opacity: 0.5});
-		// $(imgcont).children('img.sli'+position).css({opacity: 1});
-		// $($(sl).find('.pager a').get(0)).attr('active', true);
 		
 		function slide (pos) {
 			var l = 0 - (pos*940);
@@ -106,6 +102,7 @@ $('.slider1').each(function (i, sl) {
 		//stuff
 
 		if($(sl).next('article').children('.stuff').length != 0) {
+			$(sl).addClass('stuff-sl');
 			$(sl).next('article').children('.stuff').find('a[data-tab]').click(function() {
 				slide($(this).index());
 			});
@@ -169,20 +166,23 @@ $('.live-widget').ready(function() {
 
 
 $('a.callmeback').click(function() {
- 	$('div.overlay').attr('active', true);
+ 	$('div.overlay#feedbackform').attr('active', true);
  	$('html').addClass('noscroll');
+ 	$('div.overlay#feedbackform').unbind('mousewheel DOMMouseScroll').bind('mousewheel DOMMouseScroll', function(event){
+		return false;
+	});
 
 	return false;
-});
+});//$('a.callmeback').click
 
 $('.message a.close').click(function() {
 	$('html').removeClass('noscroll');
  	$(this).transition({rotate: '405deg'}, 500, 'ease', function() {
  		$(this).css({rotate: '45deg'});
- 		$('div.overlay').removeAttr('active');	
+ 		$('div.overlay#feedbackform').removeAttr('active');	
  	});
 	return false;
-});
+});//$('.message a.close').click
 
 $('.tabs-sw[data-tabs-id] a[data-tab]').click(function() {
 	var tabsId = $(this).parents('.tabs-sw[data-tabs-id]').attr('data-tabs-id');
@@ -191,7 +191,7 @@ $('.tabs-sw[data-tabs-id] a[data-tab]').click(function() {
 	$(this).parents('.tabs-sw[data-tabs-id]').find('a[data-tab]').removeAttr('active');
 	$(this).attr('active', true);
 	return false;
-});
+});//tabs-sw
 
 
 // $('.gallery1 .controls button').click(function() {
@@ -231,15 +231,15 @@ $('.gallery1').each(function (i, gl) {
 	};
 	gl.slide(4);
 
-	$($(gl).find('.imgcont a').get(-1)).clone().prependTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');//.css('margin-left', '-319px');
-	$($(gl).find('.imgcont a').get(-2)).clone().prependTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
-	$($(gl).find('.imgcont a').get(-3)).clone().prependTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
-	$($(gl).find('.imgcont a').get(-4)).clone().prependTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
+	$($(gl).find('.imgcont a').get(-1)).clone().prependTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(-2)).clone().prependTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(-3)).clone().prependTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(-4)).clone().prependTo($(gl).find('.imgcont'));
 
-	$($(gl).find('.imgcont a').get(4)).clone().appendTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
-	$($(gl).find('.imgcont a').get(5)).clone().appendTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
-	$($(gl).find('.imgcont a').get(6)).clone().appendTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
-	$($(gl).find('.imgcont a').get(7)).clone().appendTo($(gl).find('.imgcont'));//.css('outline', '3px solid red');
+	$($(gl).find('.imgcont a').get(4)).clone().appendTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(5)).clone().appendTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(6)).clone().appendTo($(gl).find('.imgcont'));
+	$($(gl).find('.imgcont a').get(7)).clone().appendTo($(gl).find('.imgcont'));
 
 	$(gl).find('.controls button').click(function() {
 		if($(this).is('.next')) gl.slide(position+1);
@@ -249,27 +249,71 @@ $('.gallery1').each(function (i, gl) {
 
 	//lightbox
 	var lightbox = $('<div class="lightbox overlay" />');
-	lightbox.img = $('<div class="img" />');
+	lightbox.img = $('<div class="img"><img alt=""></div>');
 	lightbox.preview =  $('<div class="preview" />');
+	lightbox.controls =  $('<div class="controls"><a href="#" class="prev">&lt;</a><a href="#" class="close">+</a><a href="#" class="next">&gt;</a></div>');
 
+	lightbox.position = 0;
+
+	lightbox.img.append(lightbox.controls);
 	lightbox
 		.append(lightbox.img)
 		.append(lightbox.preview);
 
+
 	images.each(function(i, a) {
-		lightbox.preview.append('<img src="'+$(a).children('img').attr('src')+'" />');
+		lightbox.preview.append('<a href="'+$(a).attr('href')+'"><img src="'+$(a).children('img').attr('src')+'" /></a>');
 	}); 
 	
 
 	$(gl).find('.imgcont a').click(function() {
 		$('body').append(lightbox);
+		$('html').addClass('noscroll');
 		lightbox.attr('active', true);
-		lightbox.img.html('<img src="'+$(this).attr('href')+'">');
-		lightbox.preview.find('img[src="'+$(this).children('img').attr('src')+'"]').attr('active', true).siblings().removeAttr('active');
+		lightbox.img.children('img').attr('src', $(this).attr('href'));
+		lightbox.position = lightbox.preview.find('a[href="'+$(this).attr('href')+'"]').attr('active', true).siblings().removeAttr('active');
+		lightbox.switch(lightbox.preview.find('a[active]').index());
 		return false;
 	});
 	lightbox.click(function() {
 		lightbox.removeAttr('active');
+		$('html').removeClass('noscroll');
+	});
+	lightbox.switch = function(i) {
+		if(i >= images.length) i = 0;
+		else if(i < 0) i = images.length - 1;
+		var a = images.get(i);
+		lightbox.img.children('img').attr('src', $(a).attr('href'));
+		lightbox.preview.find('a[href="'+$(a).attr('href')+'"]').attr('active', true).siblings().removeAttr('active');
+		gl.slide(i+4-1);
+		lightbox.position = i;
+	}
+	lightbox.preview.children('a').unbind('click').click(function() {
+		lightbox.switch($(this).index());
+		return false;
+	})
+	lightbox.img.unbind('click').click(function() {
+		lightbox.switch(lightbox.position+1);
+		return false;
+	});
+	lightbox.controls.children('.prev').unbind('click').click(function() {
+		lightbox.switch(lightbox.position-1);
+		return false;
+	});
+	lightbox.controls.children('.close').unbind('click').click(function() {
+		lightbox.removeAttr('active');
+		$('html').removeClass('noscroll');
+		return false;
+	});
+	lightbox.bind('mousewheel DOMMouseScroll', function(event){
+		if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+			lightbox.switch(lightbox.position-1);
+			return false;
+		}
+		else {
+			lightbox.switch(lightbox.position+1);
+			return false;
+		}
 	});
 });
 
