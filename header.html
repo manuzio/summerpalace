@@ -82,7 +82,7 @@
                 </nav>
             </section>
             <?=(
-                (isset($_GET['page']) and $_GET['page']!='' and $_GET['page']!='indexpage')?
+                (isset($_GET['page'])&&$_GET['page']!=''&&$_GET['page']!='indexpage'&&$_GET['page']!='live')?
                     '<section class="breadcrumbs"><a href="#">Главная</a><a href="#">Не совсем главная</a><a href="#">Совсем не важная</a><a href="#">Сюда не ходи</a></section>':
                     ''
             )?>

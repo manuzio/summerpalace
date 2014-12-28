@@ -53,11 +53,15 @@ body {
 
 body,html
 {
-    height:100%;
+    min-height:100%;
 }
 
-body.noscroll {
-	overflow: hidden;
+html.noscroll {
+		overflow-y: hidden;
+
+	body {
+		overflow-y: scroll;
+	}
 }
 
 
@@ -324,7 +328,7 @@ header {
 					font-weight: 400;
 					position: absolute;
 					background: @base-background;
-					top: 48px;
+					top: 49px;
 					//left: -310px;
 					width: 520px;
 					border-top: 1px solid #FAF4EB;
@@ -338,7 +342,9 @@ header {
 					overflow: hidden;
 					height: 0;
 					opacity: 0;
-					left: -3000px;
+					//left: -3000px;
+					padding: 0px 11px 0px 20px;
+					left: -330px;
 					transition: all 0.5s;
 					div.right {
 						float: right;
@@ -361,7 +367,7 @@ header {
 						a:focus,
 						a[active] {
 							color: @text-accent-hover;
-							transition: color 0.2s;
+							transition: color 0.1s;
 						}
 					}
 				}
@@ -370,8 +376,8 @@ header {
 			.agency:hover {
 				.submenu {
 					opacity: 1;
-					height: auto;
-					left: -310px;
+					height: 165px;
+					padding: 15px 11px 20px 20px;
 				}
 			}
 			>a:hover, >span:hover, 
@@ -907,6 +913,7 @@ main {
 			>div {
 				text-align: center;
 				padding: 10px;
+				width: 215px;
 			}
 		}
 
@@ -1270,7 +1277,7 @@ main {
 					}
 					a.psd {
 						display: block;
-						width: 135px;
+						width: 137px;
 						padding-left: 30px;
 						background: url('../img/ico/psd.png') no-repeat top left;
 						font-size: 0.8em;
@@ -1371,13 +1378,13 @@ main {
 
 			>a {
 				display: block;
-				font-size: 0.8em;
+				font-size: 0.9em;
 				font-style: italic;
 				padding: 3px 0 0 40px;
 				background: url('../img/ico/psd.png') no-repeat top left;
-				width: 150px;
+				width: 160px;
 				font-weight: 400;
-				margin: 2px 0 0 43px;
+				margin: 2px 0 0 47px;
 			}
 		}
 
@@ -1503,7 +1510,7 @@ footer {
 			color: @base-background;
 			font-family: 'Quicksand', sans;
 			font-weight: 700;
-			transform: rotate(90deg);
+			transform: rotate(-90deg);
 			transform-origin: 50% 50%;
 		}
 	} //light
@@ -1659,6 +1666,83 @@ header+footer {
 
 /********* БАНКЕТЫ *********/
 
+
+ol.bnqt-selection {
+	font-size: 0;
+	padding: 0px;
+	.center(745px);
+	text-align: center;
+	margin-top: 25px;
+	li {
+		color: @text-accent-color;
+		.sans();
+		display: inline;
+		padding: 0; 
+		margin: 0;
+		font-weight: 600;
+		list-style-type: none;
+		//text-align: center;
+
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: @text-accent-color;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 20px 0 20px;
+			transition: color 0.3s, background 0.3s;
+			margin: 0px;
+			position: relative;
+			white-space: nowrap;
+			span {
+				font-size: 14px;
+				display: list-item;
+				list-style-type: decimal;
+				list-style-position: inside
+			}
+		}
+		a[active], a:hover {
+			color: @base-background;
+		}
+		a:hover {
+			background: @text-accent-hover;
+		}
+		a[active] {
+			background: @text-accent-color;
+		}
+	
+		a:before {
+			content: ' ';
+			display: block;
+			width: 1px;
+			height: 16px;
+			background: @text-accent-color;
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			left: 0px;
+		}
+		a:after {
+			content: ' ';
+			display: block;
+			width: 1px;
+			height: 16px;
+			background: @text-accent-color;
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			right: 0px;
+		}
+	
+		a:hover:after,
+		a[active]:after {
+			background: @text-accent-hover;
+		}
+
+		margin-left: -1px;
+	}
+} //ol.bnqt-selection
+
 main {
 	section.slider1 {
 		.center();
@@ -1682,6 +1766,10 @@ main {
 		.imgcont {
 			.center();
 			position: relative;
+			img {
+				width: 940px;
+				height: 500px;
+			}
 		}
 		.caption {
 			position: absolute;
@@ -1745,7 +1833,7 @@ main {
 			height: 40px;
 			border: 1px solid @text-accent-color;
 			border-radius: 40px;
-			background: rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.9);
 			text-decoration: none;
 			line-height: 40px;
 			text-align: center;
@@ -1890,81 +1978,7 @@ main {
 		bottom: -0.1em;
 	}
 
-	ol.bnqt-selection {
-		font-size: 0;
-		padding: 0px;
-		.center(745px);
-		text-align: center;
-		margin-top: 25px;
-		li {
-			color: @text-accent-color;
-			.sans();
-			display: inline;
-			padding: 0; 
-			margin: 0;
-			font-weight: 600;
-			list-style-type: none;
-			//text-align: center;
-
-			a {
-				display: inline-block;
-				text-decoration: none;
-				color: @text-accent-color;
-				height: 30px;
-				line-height: 30px;
-				padding: 0 20px 0 20px;
-				transition: color 0.3s, background 0.3s;
-				margin: 0px;
-				position: relative;
-				white-space: nowrap;
-				span {
-					font-size: 14px;
-					display: list-item;
-					list-style-type: decimal;
-					list-style-position: inside
-				}
-			}
-			a[active], a:hover {
-				color: @base-background;
-			}
-			a:hover {
-				background: @text-accent-hover;
-			}
-			a[active] {
-				background: @text-accent-color;
-			}
-		
-			a:before {
-				content: ' ';
-				display: block;
-				width: 1px;
-				height: 16px;
-				background: @text-accent-color;
-				position: absolute;
-				top: 50%;
-				margin-top: -8px;
-				left: 0px;
-			}
-			a:after {
-				content: ' ';
-				display: block;
-				width: 1px;
-				height: 16px;
-				background: @text-accent-color;
-				position: absolute;
-				top: 50%;
-				margin-top: -8px;
-				right: 0px;
-			}
-		
-			a:hover:after,
-			a[active]:after {
-				background: @text-accent-hover;
-			}
-
-			margin-left: -1px;
-		}
-	} //ol.bnqt-selection
+	
 
 	.border-top {
 		border-top: 1px solid @text-accent-color;
@@ -2265,7 +2279,8 @@ main {
 				position: absolute;
 				top: 0px;
 				left: 50%;
-				margin-left: -925px;
+				//margin-left: -925px;
+				margin-left: -980px;
 				>div.marks {
 					width: 100%;
 					height: 100%;
@@ -2396,7 +2411,7 @@ main {
 			text-align: center;
 			font-size: 0.9em;
 			div.stuff-select {
-				width: 280px;
+				width: 310px;
 				display: flex;
 				justify-content: space-between;
 				margin: 15px auto 0px;
@@ -2583,6 +2598,10 @@ main {
 
 main {
 	article {
+		.feddback-form.right {
+			margin-left: 10px;
+		}
+
 		.feddback-form form+p {
 			width: 240px;
 			font-style: italic;
@@ -3314,11 +3333,11 @@ main {
 				text-decoration: none;
 				display: inline-block;
 				width: 280px;
-				height: 350px;
+				height: 370px;
 				color: @text-color;
 				background: @base-background;
 				position: relative;
-				margin: 135px 11px 30px 1px;
+				margin: 135px 11px 3px 1px;
 				border: 1px solid #DDDDDD;
 				padding: 10px;
 				outline: 1px solid transparent;
@@ -3346,6 +3365,7 @@ main {
 				}
 				p {
 					font-size: 0.9em;
+					padding: 10px 12px;
 				}
 			}
 			a.item:hover {
@@ -3742,4 +3762,58 @@ main {
 		[data-tabs-id][data-tab]:not([active]) {
 			display: none;
 		}
+}
+
+
+/****** fixes *****/
+
+.pxborder2.right {
+	border: 0;
+	margin-bottom: 30px;
+	iframe {
+		position: relative;
+		bottom: -3px;
+		margin: 0 3px;
+	}
+}
+
+.px380.left {
+	h3 {
+		font-weight: 400;
+	}
+	p {
+		font-size: 0.95em;
+	}
+}
+
+.live-widget + section {
+	text-align: center;
+	.button {
+		margin: 20px auto 40px;
+		padding: 0 15px;
+	}
+} 
+
+
+/******* FLOATING MENU *********/
+
+body {
+	.bsmShadowCont {
+		position: fixed;
+		top: -300px;
+		left: 0;
+		width: 100%;
+		transition: all 0s;
+		z-index: 3;
+		background: @base-background;
+		border-bottom: 1px solid @text-accent-color;
+	}
+	.bsmShadowCont[active] {
+		top: 0;
+		transition: all 0.5s;
+	}
+	.bnqt-selection.bsmShadow {
+		margin: 0 auto;
+		background: @base-background;
+	}
 }
