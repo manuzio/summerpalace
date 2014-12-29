@@ -252,10 +252,12 @@ $('.gallery1').each(function (i, gl) {
 	lightbox.img = $('<div class="img"><img alt=""></div>');
 	lightbox.preview =  $('<div class="preview" />');
 	lightbox.controls =  $('<div class="controls"><a href="#" class="prev">&lt;</a><a href="#" class="close">+</a><a href="#" class="next">&gt;</a></div>');
+	lightbox.loader = $('<div class="pending"><div class="sw"><div class="watch"></div><div class="sand"></div></div></div>');
 
 	lightbox.position = 0;
 
 	lightbox.img.append(lightbox.controls);
+	lightbox.img.append(lightbox.loader);
 	lightbox
 		.append(lightbox.img)
 		.append(lightbox.preview);
@@ -283,7 +285,13 @@ $('.gallery1').each(function (i, gl) {
 		if(i >= images.length) i = 0;
 		else if(i < 0) i = images.length - 1;
 		var a = images.get(i);
+		lightbox.loader.css('opacity', 1);
 		lightbox.img.children('img').attr('src', $(a).attr('href'));
+			lightbox.img.children('img').one("load", function() {
+	  			lightbox.loader.css('opacity', 0);
+			}).each(function() {
+				if(this.complete) $(this).load();
+			});
 		lightbox.preview.find('a[href="'+$(a).attr('href')+'"]').attr('active', true).siblings().removeAttr('active');
 		gl.slide(i+4-1);
 		lightbox.position = i;
@@ -315,6 +323,14 @@ $('.gallery1').each(function (i, gl) {
 			return false;
 		}
 	});
+
+	//external lightbox shortcut
+	if($(gl).is('[data-gal-id]')) {
+		$('[data-gal-id="'+$(gl).attr('data-gal-id')+'"]').click(function() {
+			$(gl).find('.imgcont a:eq(4)').trigger('click');
+			return false
+		});
+	}
 });
 
 $('.scrolltop').click(function() {

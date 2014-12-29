@@ -1197,6 +1197,9 @@ main {
 					background: rgba(255,255,255,0.3);
 				}
 			}
+		}//gallery1
+		.gallery1.hidden{
+			display: none;
 		}
 	}//fullwidth
 	.order-now-form {
@@ -2327,7 +2330,8 @@ main {
 						border: 1px solid @text-accent-hover;
 						border-radius: 40px;
 						box-shadow: 0 0 1px @base-background;
-						content: ' ';
+						content: attr(id);
+						color: red;
 						display: block;
 						width: 48px;
 						height: 48px;
@@ -2613,7 +2617,7 @@ main {
 
 		section.halls-list {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;//space-between;
 			margin-bottom: 60px;
 
 			a {
@@ -3669,6 +3673,9 @@ div.overlay {
 		margin-top: -23px;
 		left: 50%;
 		margin-left: -22px;
+
+		-webkit-animation: sandwatch 2s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
+    	animation: sandwatch 2s ease-in 0s infinite normal; /* Standard syntax */
 	}
 
 	.pending .sw .watch {
@@ -3680,8 +3687,6 @@ div.overlay {
 		top: 0;
 		left: 0;
 
-		-webkit-animation: sandwatch 2s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
-    	animation: sandwatch 2s ease-in 0s infinite normal; /* Standard syntax */
 	}
 
 	.pending .sw .sand {
@@ -3698,8 +3703,8 @@ div.overlay {
 
 		transform-origin: 50% 0%;
 
-		-webkit-animation: sand 1s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
-    	animation: sand 1s ease-in 0s infinite normal; /* Standard syntax */
+		-webkit-animation: sand 2s ease-in 0s infinite normal; /* Chrome, Safari, Opera */
+    	animation: sand 2s ease-in 0s infinite normal; /* Standard syntax */
 	}
 
 	@-webkit-keyframes sandwatch {
@@ -3719,37 +3724,47 @@ div.overlay {
 
 	@-webkit-keyframes sand {
 		0% {
-			transform: rotate(0deg);
 			top: 5px;
 			background-position: -65px -5px;
 		}
-		50% {
-			transform: rotate(0deg);
+		25% {
 			top: 23px;
 			background-position: -65px -23px;
 		}
-		100% {
-			transform: rotate(180deg);
+		50% {
 			top: 23px;
 			background-position: -65px -23px;
+		}
+		75% {
+			top: 5px;
+			background-position: -65px -5px;
+		}
+		100% {
+			top: 5px;
+			background-position: -65px -5px;
 		}
 	}
 
 	@keyframes sand {
 		0% {
-			transform: rotate(0deg);
-			margin-top: 0px;
+			top: 5px;
 			background-position: -65px -5px;
 		}
-		50% {
-			transform: rotate(0deg);
-			margin-top: 18px;
+		25% {
+			top: 23px;
 			background-position: -65px -23px;
 		}
-		100% {
-			transform: rotate(180deg);
-			margin-top: 18px;
+		50% {
+			top: 23px;
 			background-position: -65px -23px;
+		}
+		75% {
+			top: 5px;
+			background-position: -65px -5px;
+		}
+		100% {
+			top: 5px;
+			background-position: -65px -5px;
 		}
 	}
 }
@@ -3797,6 +3812,79 @@ main {
 } 
 
 
+
+.hover-gal {
+	div.img {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		>a {
+			text-decoration: none;
+			display: block;
+			position: absolute;
+			text-align: center;
+			overflow: hidden;
+			color: @base-background;
+			.sans();
+			background: rgba(186,141,50, 0.8);
+			border: 0px solid transparent;
+			border-radius: 300px;
+			top: 50%;
+			left: 50%;
+			width: 0px;
+			height: 0px;
+			transition: 
+				border-radius 0.5s, 
+				top 0.5s, 
+				left 0.5s,
+				width 0.5s,
+				height 0.5s;
+		}
+		>a:before {
+			
+		}
+	} //div.img
+	// div.img:after {
+	// 	content: ' ';
+	// 	position: absolute;
+	// 	top: 3px;
+	// 	left: 3px;
+	// 	border: 1px solid @base-background;
+	// 	width: 292px;
+	// 	height: 292px;
+	// }
+	div.img:after {
+		content: ' ';
+		display: block;
+		height: 325px;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: url('../img/ico/gall-large.png') no-repeat center center;
+		position: absolute;
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+	div.img:hover:after {
+		opacity: 1;
+	}
+	div.img:hover {
+		>a {
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			border-radius: 0;
+			opacity: 1;
+		}
+	}
+}
+
+.hover-gal.left {
+	margin-right: 20px;
+}
+
+
 /******* FLOATING MENU *********/
 
 body {
@@ -3835,9 +3923,24 @@ body {
 		outline-offset: -5px;
 		cursor: pointer; 
 		position: relative;
+		transition: all 0.5s;
 		img {
 			cursor: pointer;
 			max-width: 100%;
+		}
+		.pending {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -40px;
+			margin-left: -40px;
+			width: 80px;
+			height: 80px;
+			background: rgba(255, 255, 255, 0.7);//@base-background;
+			border: 0px solid rgba(255, 255, 255, 0.6);
+			box-shadow: 0 0 20px @base-background;
+			border-radius: 80px;
+			transition: opacity, 1s;
 		}
 		.controls {
 			position: absolute;
@@ -3873,12 +3976,15 @@ body {
 				color: @base-background;
 			}
 			a.prev {
-				margin-left: -445px;
+				margin-top: 280px;
+				margin-left: -510px;
 			}
 			a.next {
-				margin-left: 405px;
+				margin-top: 280px;
+				margin-left: 470px;
 			}
 			a.close {
+				margin-top: -65px;
 				margin-left: -20px;
 				transform: rotate(45deg);
 				font-size: 2.6em;
