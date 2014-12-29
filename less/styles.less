@@ -2278,7 +2278,7 @@ main {
 			>div.img {
 				width: 1960px;
 				height: 740px;
-				background: url('../img/plan1-1.png') no-repeat top center;
+				background: url('../img/plan1v2.png') no-repeat top center;
 				position: absolute;
 				top: 0px;
 				left: 50%;
@@ -2292,6 +2292,8 @@ main {
 						text-decoration: none;
 						width: 52px;
 						height: 52px;
+						width: 66px;
+						height: 66px;
 						position: absolute;
 						top: 0; 
 						left: 50%;
@@ -2324,17 +2326,20 @@ main {
 						}
 					}
 					>a:before {
-						margin-top: 2px;
-						margin-left: 2px;
-						background: @base-background;
-						border: 1px solid @text-accent-hover;
+						// margin-top: 2px;
+						// margin-left: 2px;
+						// background: @base-background;
+						// border: 1px solid @text-accent-hover;
 						border-radius: 40px;
-						box-shadow: 0 0 1px @base-background;
-						content: attr(id);
+						// box-shadow: 0 0 1px @base-background;
+						//content: attr(id);
+						content: ' ';
 						color: red;
 						display: block;
-						width: 48px;
-						height: 48px;
+						// width: 48px;
+						// height: 48px;
+						width: 66px;
+						height: 66px;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -2345,29 +2350,32 @@ main {
 						font-size: 3.4em;
 						line-height: 41px;
 						content: '+';
+						content: '';
 						display: block;
-						width: 48px;
-						height: 48px;
+						width: 66px;
+						height: 66px;
 						position: absolute;
-						top: 3px;
-						left: 3px;
+						// top: 3px;
+						// left: 3px;
 						//outline: 1px solid red;
+						background: url(../img/ico/mag-glass-btn.png) no-repeat;
+						color: @base-background;
 						transition: transform 0.5s;
 					}
 					>a:active,
 					>a:focus {
 						outline: 0;
 					}
-					a#m1 {top: 37px; margin-left: -383px;}
-					a#m2 {top: 37px; margin-left: -128px;}
-					a#m3 {top: 191px; margin-left: -359px;}
-					a#m4 {top: 320px; margin-left: -548px;}
-					a#m5 {top: 344px; margin-left: -216px;}
-					a#m6 {top: 108px; margin-left: 6px;}
-					a#m7 {top: 295px; margin-left: 15px;}
-					a#m8 {top: 205px; margin-left: 245px;}
-					a#m9 {top: 320px; margin-left: 318px;}
-					a#m10 {top: 436px; margin-left: 146px;}
+					a#m1 {top: 127px; margin-left: -421px;}
+					a#m2 {top: 118px; margin-left: -128px;}
+					a#m3 {top: 270px; margin-left: -353px;}
+					a#m4 {top: 361px; margin-left: -614px;}
+					a#m5 {top: 417px; margin-left: -316px;}
+					a#m6 {top: 193px; margin-left: -20px;}
+					a#m7 {top: 335px; margin-left: -75px;}
+					a#m8 {top: 270px; margin-left: 146px;}
+					a#m9 {top: 402px; margin-left: 315px;}
+					a#m10 {top: 463px; margin-left: 99px;}
 
 					>a[active] {
 						overflow: visible;
