@@ -88,6 +88,11 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
+        <script type="text/javascript">
+            $('main').children(':not(:first-child)').find('img').each(function (i, img) {
+                $(img).attr('data-src', $(img).attr('src')).removeAttr('src');
+            });
+        </script>
         <script src="js/vendor/jquery.transit.min.js"></script>
         <script src="js/vendor/jquery.touchSwipe.min.js"></script>
         <script src="js/main.js"></script>

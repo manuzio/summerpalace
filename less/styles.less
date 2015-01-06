@@ -1697,6 +1697,7 @@ ol.bnqt-selection {
 			margin: 0px;
 			position: relative;
 			white-space: nowrap;
+			outline: 0;
 			span {
 				font-size: 14px;
 				display: list-item;
@@ -2283,7 +2284,8 @@ main {
 				top: 0px;
 				left: 50%;
 				//margin-left: -925px;
-				margin-left: -980px;
+				// margin-left: -980px;
+				margin-left: -955px;
 				>div.marks {
 					width: 100%;
 					height: 100%;
@@ -2301,14 +2303,17 @@ main {
 						overflow: hidden;
 						color: inherit;
 						div {
-							display: none;
+							// display: none;
 							opacity: 0;
 							position: absolute;
 							width: 380px;
-							bottom: -156px;
-							right: -84px;
+							// bottom: -156px;
+							// right: -84px;
+							bottom: -78px;
+							right: -157px;
 							text-align: center;
-							transition: all 0.5s;
+							transition: all 0s;
+							z-index: 2;
 							>* {
 								color: @base-background;
 								font-size: 0.9em;
@@ -2317,50 +2322,83 @@ main {
 								text-transform: uppercase;
 							}
 							img {
-								width: 210px;
-								height: 210px;
 								border: 6px solid @base-background;
 								border-radius: 210px;
-								margin-top: 20px;
+								margin: 105px 85px 85px 85px;
+								width: 40px;
+								height: 40px;
+								vertical-align: top;
+								transition: all 0s;
+							}
+						}
+					}
+					>a.caption-bottom {
+						div {
+							h5 {
+								position: absolute;
+								top: 265px;
+								width: 100%;
+								text-align: center;
+							}
+							p {
+								position: absolute;
+								top: 295px;
 							}
 						}
 					}
 					>a:before {
-						// margin-top: 2px;
-						// margin-left: 2px;
-						// background: @base-background;
-						// border: 1px solid @text-accent-hover;
+						background: @base-background;
+						border: 1px solid @text-accent-hover;
 						border-radius: 40px;
-						// box-shadow: 0 0 1px @base-background;
-						//content: attr(id);
-						content: ' ';
-						color: red;
+						box-shadow: 0 0 1px @text-accent-hover;
+						content: '+';
+						color: @text-accent-hover;
+						font-size: 3em;
+						text-align: center;
 						display: block;
-						// width: 48px;
-						// height: 48px;
-						width: 66px;
-						height: 66px;
+						width: 48px;
+						height: 48px;
+						line-height: 48px;
+						letter-spacing: -2px;
 						position: absolute;
-						top: 0;
-						left: 0;
+						top: -80px;
+						left: 80px;
+						z-index: 3;
+						font-family: 'Quicksand', sans;
+						transform: rotate(45deg);
+						cursor: pointer;
+						transition: all 0.5s;
 					}
 					>a:after {
 						color: @text-accent-hover;
 						text-align: center;
 						font-size: 3.4em;
 						line-height: 41px;
-						content: '+';
-						content: '';
+						content: ' ';
 						display: block;
-						width: 66px;
-						height: 66px;
+						width: 50px;
+						height: 50px;
 						position: absolute;
 						// top: 3px;
 						// left: 3px;
 						//outline: 1px solid red;
-						background: url(../img/ico/mag-glass-btn.png) no-repeat;
+						//background: url(../img/ico/mag-glass-btn.png) no-repeat;
+						background: @base-background url(../img/ico/lupa_button.png)  50% 50% no-repeat;
 						color: @base-background;
-						transition: transform 0.5s;
+						border: 0px solid @text-accent-hover;
+						border-radius: 50px;
+						transition: transform 0.5s, opacity 1s;
+						box-shadow: 		0px 0px 8px rgba(0, 0, 0, 0.5),
+									inset 	0px 0px 1px @text-accent-hover,
+											0px 0px 1px @text-accent-hover;
+						margin: 8px;
+					}
+					>a:hover:after {
+						padding: 3px;
+						margin: 5px;
+					}
+					>a:hover {
+						z-index: 5;
 					}
 					>a:active,
 					>a:focus {
@@ -2379,19 +2417,28 @@ main {
 
 					>a[active] {
 						overflow: visible;
+						cursor: default;
 						div {
 							display: block;
-							z-index: 2;
+							// z-index: 2;
 							opacity: 1;
+							transition: all 0.5s;
+							img {
+								width: 210px;
+								height: 210px;
+								margin: 20px 0px 0px 0px;
+								transition: margin 0.15s ease, width 0.15s ease, height 0.15s ease;
+							}
 						}
 					}
 					>a[active]:after {
-						transform: rotate(45deg);
-						transform-origin: 50% 50%;
-						z-index: 4;
+						// transform: rotate(45deg);
+						// transform-origin: 50% 50%;
+						// z-index: 4;
+						// opacity: 0;
 					}
 					>a[active]:before {
-						z-index: 3;
+						// transform: rotate(135deg);
 					}
 					div.shadow {
 						width: 0;
@@ -3145,6 +3192,7 @@ main {
 			justify-content: space-around;
 			width: 100%;
 			margin-top: 30px;
+			margin-bottom: 30px;
 			>a {
 				display: block;
 				width: 150px;
@@ -3461,22 +3509,22 @@ main {
 			margin-bottom: 80px;
 		}
 		article iframe.youtube {
-			margin: 153px 0 0 -470px;
-			position: relative;
-			left: 50%;
+			// margin: 153px 0 0 -470px;
+			// position: relative;
+			// left: 50%;
 		}
-		article {
-			.map1 {
-				.img {
-					top: 60px;
-					.marks {
-						.shadow {
-							top: -60px;
-						}
-					}
-				}
-			}
-		}
+		// article {
+		// 	.map1 {
+		// 		.img {
+		// 			top: 60px;
+		// 			.marks {
+		// 				.shadow {
+		// 					top: -60px;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 	.indexswitcher-buttons {
 		//background: #EEEEEE;
@@ -3935,6 +3983,16 @@ body {
 		img {
 			cursor: pointer;
 			max-width: 100%;
+			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+			-webkit-filter: grayscale(0%);
+			opacity: 1;
+			transition: all 0.7s;
+		}
+		img.grayscale {
+			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+		    filter: gray; /* IE6-9 */
+		    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+		    opacity: 1;
 		}
 		.pending {
 			position: absolute;
@@ -4028,6 +4086,26 @@ body {
 		}
 		a[active]:after {
 			opacity: 0;
+		}
+	}
+}
+
+
+
+/******** LAZYLOAD **********/
+
+html.js {
+	body {
+		main {
+			// >* {
+			// 	display: none;
+			// }
+			>*:not(.load-ready):nth-child(n+3) {
+				// display: none;
+				img {
+					display: none;
+				}
+			}
 		}
 	}
 }
