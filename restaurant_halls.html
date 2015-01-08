@@ -1,49 +1,163 @@
  <main>
 	<h1 class="outlined"><span>Залы дворца</span></h1>
- 	<article class="fullwidth">
-    	<section class="halls-list">
-    		<a href="#" active>
-    			<img src="content/stuff1.jpg">
-    			<span>Розовый зал</span>
-    		</a>
-    		<a href="#">
-    			<img src="content/stuff2.jpg">
-    			<span>Живописный зал</span>
-    		</a>
-    		<a href="#">
-    			<img src="content/stuff3.jpg">
-    			<span>Малые залы</span>
-    		</a>
-    		<a href="#">
-    			<img src="content/stuff4.jpg">
-    			<span>Галереи</span>
-    		</a>
-    	</section>
-    	<section class="hall-descr">
-	    	<img src="http://placekitten.com/460/325" alt="" class="left">
-	    	<h3>Розовый и Живописный зал</h3>
-	    	<p>Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут быть объеденины в единое пространство, или разделены на два зала для одного, менее масштабного мероприятия. Общая площадь двух залов составляет 840 м2. Залы могут.</p>
-	    	<div class="clearfix"></div>
-	    	<div class="capt">
-	    		<div class="linx">
-	    			<span>
-	    				<img src="img/ico/psd.png">
-	    				<a href="#">Схема зала</a>
-	    			</span>
-	    			<span>
-	    				<img src="img/ico/gall.png">
-	    				<a href="#">Фотогалерея</a>
-	    			</span>
-	    			<span>
-	    				<img src="img/ico/gall.png">
-	    				<a href="#">Описание зала</a>
-	    			</span>
-	    		</div>
-	    		<div class="opt">
-	    			Площадь <span>840 м<sup>2</sup></span> до <span>800</span> человек
-	    		</div>
-	    		<div class="clearfix"></div>
-	    	</div>
-    	</section>
+ 	 <article class="fullwidth">
+        <section class="halls-list tabs-sw" data-tabs-id="halls-list">
+            <a href="#" data-tab="roz" active>
+                <img src="./uploads/rozovy_i_jivopisny-halls.jpg">
+                <span>Розовый и живописный залы</span>
+            </a>
+            <a href="#" data-tab="mal">
+                <img src="./uploads/malye_zaly-halls.jpg">
+                <span>Малые залы</span>
+            </a>
+            <a href="#" data-tab="let">
+                <img src="./uploads/letniy_pavilion-halls.jpg">
+                <span>Летний павильон</span>
+            </a>
+        </section>
+        
+
+        <section class="hall-descr" data-tabs-id="halls-list" data-tab="roz" active>
+            <div class="hover-gal left" data-gal-id="fotozal1">
+                <div class="img">
+                    <img src="./uploads/rozovy_i_jivopisny-halls-2.jpg" alt="">
+                    <a href="#"></a>
+                </div>
+            </div>
+            <h3>Розовый и Живописный зал</h3>
+            <p>Летний Дворец предлагает своим гостям два зала — Розовый и Живописный — общей площадью 840 кв.м., позволяющих либо объединить их в единое пространство под задачи масштабного праздника до 500 человек в банкетной рассадке, либо за счет специального театрального занавеса получить два отдельных пространства для проведения менее масштабного мероприятия.</p>
+            <div class="clearfix"></div>
+            <div class="capt">
+                <div class="linx">
+                    <!-- <span>
+                        <img src="img/ico/psd.png">
+                        <a href="#">Схема зала</a>
+                    </span> -->
+                   <!--  <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#" data-gal-id="fotozal1">Фотогалерея</a>
+                    </span> -->
+                    <section class="gallery1 hidden" data-gal-id="fotozal1">
+                        <div class="imgcont">
+                <a href="./uploads/rose-1-big.jpg"><img src="./uploads/rose-1.jpg" alt=""></a>
+                <a href="./uploads/rose-2-big.jpg"><img src="./uploads/rose-2.jpg" alt=""></a>
+                <a href="./uploads/rose-3-big.jpg"><img src="./uploads/rose-3.jpg" alt=""></a>
+                <a href="./uploads/rose-4-big.jpg"><img src="./uploads/rose-4.jpg" alt=""></a>
+                <a href="./uploads/rose-5-big.jpg"><img src="./uploads/rose-5.jpg" alt=""></a>
+                <a href="./uploads/jivopisnyi-1-big.jpg"><img src="./uploads/jivopisnyi-1.jpg" alt=""></a>
+                <a href="./uploads/jivopisnyi-2-big.jpg"><img src="./uploads/jivopisnyi-2.jpg" alt=""></a>
+                <a href="./uploads/jivopisnyi-3-big.jpg"><img src="./uploads/jivopisnyi-3.jpg" alt=""></a>
+                <a href="./uploads/jivopisnyi-4-big.jpg"><img src="./uploads/jivopisnyi-4.jpg" alt=""></a>
+
+                        </div>
+                    </section>
+                    <!-- <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#">Описание зала</a>
+                    </span> -->
+                </div>
+                <div class="opt">
+                    Площадь <span>840 м<sup>2</sup></span> до <span>800</span> человек
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+
+
+        <section class="hall-descr" data-tabs-id="halls-list" data-tab="mal">
+            <div class="hover-gal left" data-gal-id="fotozal2">
+                <div class="img">
+                    <img src="./uploads/malye_zaly-halls-2.jpg" alt="">
+                    <a href="#"></a>
+                </div>
+            </div>
+            <h3>Малые залы</h3>
+            <p>Коллекция малых залов ресторанного комплекса "Летний Дворец", выдержанных в общей стилистике с основными залами, позволяет проводить мероприятия на небольшое количество гостей: деловые обеды и переговоры, дни рождения и свадьбы, отдельные совещания в рамках мероприятий в основных залах Комплекса.</p>
+            <div class="clearfix"></div>
+            <div class="capt">
+                <div class="linx">
+                    <!-- <span>
+                        <img src="img/ico/psd.png">
+                        <a href="#">Схема зала</a>
+                    </span> -->
+                    <!-- <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#" data-gal-id="fotozal2">Фотогалерея</a>
+                    </span> -->
+                    <section class="gallery1 hidden" data-gal-id="fotozal2">
+                        <div class="imgcont">
+                <a href="./uploads/bolshoi-dvorets-1-big.jpg"><img src="./uploads/bolshoi-dvorets-1.jpg" alt=""></a>
+                <a href="./uploads/bolshoi-dvorets-2-big.jpg"><img src="./uploads/bolshoi-dvorets-2.jpg" alt=""></a>
+                <a href="./uploads/bolshoi-dvorets-3-big.jpg"><img src="./uploads/bolshoi-dvorets-3.jpg" alt=""></a>
+                <a href="./uploads/aleksandria2-big.jpg"><img src="./uploads/aleksandria2.jpg" alt=""></a>
+                <a href="./uploads/aleksandria3-big.jpg"><img src="./uploads/aleksandria3.jpg" alt=""></a>
+                <a href="./uploads/aleksandria4-big.jpg"><img src="./uploads/aleksandria4.jpg" alt=""></a>
+                <a href="./uploads/china-1-big.jpg"><img src="./uploads/china-1.jpg" alt=""></a>
+                <a href="./uploads/china-2-big.jpg"><img src="./uploads/china-2.jpg" alt=""></a>
+                <a href="./uploads/china-3-big.jpg"><img src="./uploads/china-3.jpg" alt=""></a>
+
+                        </div>
+                    </section>
+                    <!-- <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#">Описание зала</a>
+                    </span> -->
+                </div>
+                <div class="opt">
+                    Площадь до <span>66 м<sup>2</sup></span> до <span>40</span> человек
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+
+
+
+        <section class="hall-descr" data-tabs-id="halls-list" data-tab="let">
+            <div class="hover-gal left" data-gal-id="fotozal3">
+                <div class="img">
+                    <img src="./uploads/letniy_pavilion-halls-2.jpg" alt="">
+                    <a href="#"></a>
+                </div>
+            </div>
+            <h3>Летний павильон</h3>
+            <p>Отдельная сезонная "изюминка" ресторанного комплекса "Летний Дворец" - Летний Павильон, расположенных на территории т обрамленный зелеными газонами и пышными клумбами. Павильон идеален для летних уличных историй - будь-то романтичная свадьба или задорный день рождения. Так же он может быть использован как отдельная зона в рамках крупных мероприятий в основных залах Комплекса.</p>
+            <div class="clearfix"></div>
+            <div class="capt">
+                <div class="linx">
+                    <!-- <span>
+                        <img src="img/ico/psd.png">
+                        <a href="#">Схема зала</a>
+                    </span> -->
+                   <!--  <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#" data-gal-id="fotozal3">Фотогалерея</a>
+                    </span> -->
+                    <section class="gallery1 hidden" data-gal-id="fotozal3">
+                        <div class="imgcont">
+                <a href="./uploads/pavilion-1-big.jpg"><img src="./uploads/pavilion-1.jpg" alt=""></a>
+                <a href="./uploads/pavilion-2-big.jpg"><img src="./uploads/pavilion-2.jpg" alt=""></a>
+                <a href="./uploads/pavilion-3-big.jpg"><img src="./uploads/pavilion-3.jpg" alt=""></a>
+                <a href="./uploads/pavilion-4-big.jpg"><img src="./uploads/pavilion-4.jpg" alt=""></a>
+                <a href="./uploads/pavilion-5-big.jpg"><img src="./uploads/pavilion-5.jpg" alt=""></a>
+                <a href="./uploads/pavilion-6-big.jpg"><img src="./uploads/pavilion-6.jpg" alt=""></a>
+                <a href="./uploads/pavilion-7-big.jpg"><img src="./uploads/pavilion-7.jpg" alt=""></a>
+                <a href="./uploads/pavilion-8-big.jpg"><img src="./uploads/pavilion-8.jpg" alt=""></a>
+                <a href="./uploads/pavilion-9-big.jpg"><img src="./uploads/pavilion-9.jpg" alt=""></a>
+                        </div>
+                    </section>
+                    <!-- <span>
+                        <img src="img/ico/gall.png">
+                        <a href="#">Описание зала</a>
+                    </span> -->
+                </div>
+                <div class="opt">
+                    Площадь <span>200 м<sup>2</sup></span> до <span>100</span> человек
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+
+
+
     </article>
 </main>
