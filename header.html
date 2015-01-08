@@ -72,9 +72,9 @@
                         <div class="submenu">
                             <div class="right">
                                 <a href="?page=corporate">Организация мероприятий</a>
-                                <a href="?page=corporate">Организация кейтеринга</a>
-                                <a href="?page=corporate">Площадка Летний Дворец</a>
-                                <a href="?page=corporate">Уникальные возможности</a>
+                                <a href="?page=corporate_catering">Организация кейтеринга</a>
+                                <a href="?page=corporate_space">Площадка Летний Дворец</a>
+                                <a href="?page=corporate_uniq">Уникальные возможности</a>
                             </div>
                             <i>Мы работаем с кем попало</i>
                         </div>
@@ -83,7 +83,8 @@
             </section>
             <?=(
                 (isset($_GET['page'])&&$_GET['page']!=''&&$_GET['page']!='indexpage'&&$_GET['page']!='live')?
-                    '<section class="breadcrumbs"><a href="#">Главная</a><a href="#">Не совсем главная</a><a href="#">Совсем не важная</a><a href="#">Сюда не ходи</a></section>':
+                    '<section class="breadcrumbs">'.$breadcrumbs.'
+                    </section>':
                     ''
             )?>
         </header>

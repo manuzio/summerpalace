@@ -175,6 +175,10 @@ $('a.callmeback').click(function() {
 		return false;
 	});
 
+ 	$(window, 'html', 'body').unbind('mousewheel DOMMouseScroll').bind('mousewheel DOMMouseScroll', function(event){
+		return false;
+	});
+
 	return false;
 });//$('a.callmeback').click
 
@@ -184,6 +188,7 @@ $('.message a.close').click(function() {
  		$(this).css({rotate: '45deg'});
  		$('div.overlay#feedbackform').removeAttr('active');	
  	});
+ 	$(window, 'html', 'body').unbind('mousewheel DOMMouseScroll');
 	return false;
 });//$('.message a.close').click
 
