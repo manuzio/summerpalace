@@ -325,6 +325,10 @@ $('.gallery1').each(function (i, gl) {
 		images.each(function(i, a) {
 			lightbox.preview.append('<a href="'+$(a).attr('href')+'"><img src="'+$(a).children('img').attr('src')+'" /></a>');
 		}); 
+		lightbox.preview.children('a').unbind('click').click(function() {
+			lightbox.switch($(this).index());
+			return false;
+		})
 		$('body').append(lightbox);
 		$('html').addClass('noscroll');
 		lightbox.attr('active', true);
@@ -361,10 +365,7 @@ $('.gallery1').each(function (i, gl) {
 		// gl.slide(i+4-1);
 		lightbox.position = i;
 	}
-	lightbox.preview.children('a').unbind('click').click(function() {
-		lightbox.switch($(this).index());
-		return false;
-	})
+	
 	lightbox.img.unbind('click').click(function() {
 		lightbox.switch(lightbox.position+1);
 		return false;
