@@ -189,7 +189,7 @@ $('.live-widget').ready(function() {
 }); //live-widget
 
 
-$('a.callmeback').click(function() {
+$('a.callmeback, .call_me_maybe button').click(function() {
  	$('div.overlay#feedbackform').attr('active', true);
  	$('html').addClass('noscroll');
  	$('div.overlay#feedbackform').unbind('mousewheel DOMMouseScroll').bind('mousewheel DOMMouseScroll', function(event){
